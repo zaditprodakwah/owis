@@ -6,6 +6,14 @@ export default defineConfig({
   title: "OWIS",
   description: "Open Workspace Intelligence Specification",
   cleanUrls: true,
+  head: [
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:title', content: 'OWIS' }],
+    ['meta', { property: 'og:description', content: 'Open Workspace Intelligence Specification' }],
+    ['meta', { property: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { property: 'twitter:title', content: 'OWIS' }],
+    ['meta', { property: 'twitter:description', content: 'Open Workspace Intelligence Specification' }]
+  ],
   srcDir: '..',
   srcExclude: ['**/node_modules/**', 'website/dist/**', 'website/cache/**'],
   sitemap: {
