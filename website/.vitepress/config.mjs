@@ -92,6 +92,12 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Runtime',
+        items: [
+          { text: 'Reference Runtime', link: '/docs/30-RUNTIME/' }
+        ]
+      },
+      {
         text: 'Governance',
         items: [
           { text: 'License', link: '/license' }

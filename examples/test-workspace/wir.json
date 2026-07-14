@@ -1,0 +1,123 @@
+{
+  "workspace": {
+    "root": "/Users/mac/Downloads/PROYEK/OWIS/examples/test-workspace",
+    "scanned_files": 2,
+    "scanned_directories": 0,
+    "ignored_paths": [
+      "node_modules",
+      ".git",
+      "dist",
+      "cache"
+    ],
+    "supported_formats": [
+      ".md",
+      ".json",
+      ".js",
+      ".mjs"
+    ],
+    "generated_at": "2026-07-14T17:39:55.419Z"
+  },
+  "project": {
+    "name": "test-workspace-example",
+    "description": "Auto-generated workspace report by OWIS Reference Runtime",
+    "version": "1.0.0",
+    "maturity": "Draft",
+    "repository_type": "git",
+    "domain": "software-development",
+    "objectives": [
+      "Workspace discovery",
+      "Ontology mapping"
+    ],
+    "stakeholders": [
+      "AI Agents",
+      "Human Developers"
+    ]
+  },
+  "source_of_truth": {
+    "primary": [
+      "README.md"
+    ],
+    "secondary": [],
+    "reference": [],
+    "temporary": []
+  },
+  "knowledge": {
+    "glossary": {
+      "OWIS": "Open Workspace Intelligence Specification",
+      "WIR": "Workspace Intelligence Report",
+      "UARS": "Universal Agent Runtime Specification"
+    },
+    "terminology": {
+      "workspace": "The logical root folder containing software artifacts"
+    },
+    "concepts": [
+      "Ontology Mapping",
+      "Workspace Intelligence"
+    ],
+    "business_rules": [],
+    "assumptions": []
+  },
+  "architecture": {
+    "style": "Monolithic Codebase",
+    "patterns": [
+      "Documentation-driven Design"
+    ],
+    "bounded_contexts": [
+      "Core Spec",
+      "Website"
+    ],
+    "modules": [
+      {
+        "path": "README.md",
+        "size": 217
+      },
+      {
+        "path": "owis.json",
+        "size": 136
+      }
+    ],
+    "services": [],
+    "packages": [],
+    "layers": [
+      "Documentation",
+      "Portal Assets"
+    ],
+    "workflows": []
+  },
+  "technology": {
+    "languages": [
+      "Markdown",
+      "JSON"
+    ],
+    "frameworks": [],
+    "runtimes": [
+      "Node.js"
+    ],
+    "libraries": [],
+    "package_managers": []
+  },
+  "contracts": {
+    "api": [],
+    "schema": [],
+    "interfaces": []
+  },
+  "dependencies": {
+    "internal": [],
+    "external": []
+  },
+  "confidence": {
+    "workspace": 0.9,
+    "architecture": 0.8,
+    "contracts": 0.8,
+    "overall": 0.85
+  },
+  "execution": {
+    "readiness": "READY",
+    "blockers": [],
+    "recommended_scope": [
+      "All components"
+    ],
+    "validation_required": [],
+    "next_action": null
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "owis-runtime",
+  "version": "0.1.0",
+  "description": "OWIS Reference Runtime Parser and WIR Generator",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node src/index.js ../examples/test-workspace"
+  },
+  "dependencies": {
+    "ajv": "^8.12.0"
+  }
+}
