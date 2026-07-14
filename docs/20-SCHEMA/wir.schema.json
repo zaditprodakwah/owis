@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OWIS Workspace Intelligence Report Schema",
+  "type": "object",
+  "properties": {
+    "workspace": {
+      "type": "object",
+      "properties": {
+        "root": { "type": "string" },
+        "scanned_files": { "type": "integer" },
+        "scanned_directories": { "type": "integer" },
+        "ignored_paths": { "type": "array", "items": { "type": "string" } },
+        "supported_formats": { "type": "array", "items": { "type": "string" } },
+        "generated_at": { "type": "string" }
+      },
+      "required": ["root", "scanned_files", "scanned_directories", "ignored_paths", "generated_at"]
+    },
+    "project": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "version": { "type": "string" },
+        "maturity": { "type": "string" },
+        "repository_type": { "type": "string" },
+        "domain": { "type": "string" },
+        "objectives": { "type": "array", "items": { "type": "string" } },
+        "stakeholders": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["name", "description", "version"]
+    },
+    "source_of_truth": {
+      "type": "object",
+      "properties": {
+        "primary": { "type": "array", "items": { "type": "string" } },
+        "secondary": { "type": "array", "items": { "type": "string" } },
+        "reference": { "type": "array", "items": { "type": "string" } },
+        "temporary": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["primary", "secondary"]
+    },
+    "knowledge": {
+      "type": "object",
+      "properties": {
+        "glossary": { "type": "object", "additionalProperties": { "type": "string" } },
+        "terminology": { "type": "object", "additionalProperties": { "type": "string" } },
+        "concepts": { "type": "array", "items": { "type": "string" } },
+        "business_rules": { "type": "array", "items": { "type": "string" } },
+        "assumptions": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["glossary", "terminology"]
+    },
+    "architecture": {
+      "type": "object",
+      "properties": {
+        "style": { "type": "string" },
+        "patterns": { "type": "array", "items": { "type": "string" } },
+        "bounded_contexts": { "type": "array", "items": { "type": "string" } },
+        "modules": { "type": "array", "items": { "type": "object" } },
+        "services": { "type": "array", "items": { "type": "string" } },
+        "packages": { "type": "array", "items": { "type": "string" } },
+        "layers": { "type": "array", "items": { "type": "string" } },
+        "workflows": { "type": "array", "items": { "type": "object" } }
+      },
+      "required": ["style", "modules"]
+    },
+    "technology": {
+      "type": "object",
+      "properties": {
+        "languages": { "type": "array", "items": { "type": "string" } },
+        "frameworks": { "type": "array", "items": { "type": "string" } },
+        "runtimes": { "type": "array", "items": { "type": "string" } },
+        "libraries": { "type": "array", "items": { "type": "string" } },
+        "package_managers": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["languages", "frameworks"]
+    },
+    "contracts": {
+      "type": "object",
+      "properties": {
+        "api": { "type": "array", "items": { "type": "object" } },
+        "schema": { "type": "array", "items": { "type": "object" } },
+        "interfaces": { "type": "array", "items": { "type": "object" } }
+      },
+      "required": ["api", "schema", "interfaces"]
+    },
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "internal": { "type": "array", "items": { "type": "object" } },
+        "external": { "type": "array", "items": { "type": "object" } }
+      },
+      "required": ["internal", "external"]
+    },
+    "confidence": {
+      "type": "object",
+      "properties": {
+        "workspace": { "type": "number", "minimum": 0, "maximum": 1 },
+        "architecture": { "type": "number", "minimum": 0, "maximum": 1 },
+        "contracts": { "type": "number", "minimum": 0, "maximum": 1 },
+        "implementation": { "type": "number", "minimum": 0, "maximum": 1 },
+        "documentation": { "type": "number", "minimum": 0, "maximum": 1 },
+        "overall": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "required": ["workspace", "architecture", "contracts", "overall"]
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "readiness": { "type": "string", "enum": ["READY", "PARTIAL", "BLOCKED"] },
+        "blockers": { "type": "array", "items": { "type": "string" } },
+        "recommended_scope": { "type": "array", "items": { "type": "string" } },
+        "validation_required": { "type": "array", "items": { "type": "string" } },
+        "next_action": { "type": ["string", "null"] }
+      },
+      "required": ["readiness", "blockers"]
+    }
+  },
+  "required": [
+    "workspace", "project", "source_of_truth", "knowledge", "architecture", 
+    "technology", "contracts", "dependencies", "confidence", "execution"
+  ],
+  "additionalProperties": false
+}

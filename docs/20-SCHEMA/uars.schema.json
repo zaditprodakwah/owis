@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OWIS Universal Agent Runtime Specification Schema",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "deprecated"]
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["workspace-runtime"]
+    },
+    "autonomy": {
+      "type": "string",
+      "enum": ["supervised", "autonomous"]
+    },
+    "speculation": {
+      "type": "string",
+      "enum": ["forbidden", "allowed"]
+    },
+    "mutations": {
+      "type": "object",
+      "properties": {
+        "architecture": { "type": "string", "enum": ["forbidden", "allowed"] },
+        "stack": { "type": "string", "enum": ["forbidden", "allowed"] },
+        "dependencies": { "type": "string", "enum": ["forbidden", "allowed"] }
+      },
+      "required": ["architecture", "stack", "dependencies"]
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "style": { "type": "string", "enum": ["structured", "freeform"] },
+        "verbosity": { "type": "string", "enum": ["minimal", "verbose"] }
+      },
+      "required": ["style", "verbosity"]
+    }
+  },
+  "required": ["version", "status", "mode", "autonomy", "speculation", "mutations", "output"],
+  "additionalProperties": false
+}

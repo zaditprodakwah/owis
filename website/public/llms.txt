@@ -23,3 +23,6 @@
 ### Specification
 * [Universal Agent Runtime Specification (UARS)](/docs/10-SPEC/UARS): Safe mutation contracts and operational pipeline stages.
 * [Workspace Intelligence Report Specification (WIR)](/docs/10-SPEC/WIR): Canonical schema fields and confidence scales.
+
+### Schemas
+* [Specification Schemas](/docs/20-SCHEMA/): JSON schemas for validating workspace and runtime intelligence.

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OWIS Dependency Schema",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "relationship": {
+      "type": "string",
+      "enum": ["requires", "extends", "constrains", "implements", "defines"]
+    },
+    "criticality": {
+      "type": "string",
+      "enum": ["HIGH", "MEDIUM", "LOW"]
+    }
+  },
+  "required": ["source", "target", "relationship", "criticality"],
+  "additionalProperties": false
+}

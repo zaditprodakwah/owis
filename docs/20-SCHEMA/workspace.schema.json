@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OWIS Workspace Configuration Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the workspace"
+    },
+    "version": {
+      "type": "string",
+      "description": "Specification version of the workspace config"
+    },
+    "roots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Directories to search for source code and specs"
+    },
+    "exclude": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Glob patterns of folders and files to ignore during ingestion"
+    },
+    "settings": {
+      "type": "object",
+      "description": "Custom project runtime configurations"
+    }
+  },
+  "required": ["name", "version", "roots"],
+  "additionalProperties": false
+}

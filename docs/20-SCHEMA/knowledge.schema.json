@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OWIS Knowledge Graph Schema",
+  "type": "object",
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "type": { 
+            "type": "string", 
+            "enum": ["Artifact", "Entity", "Capability", "Constraint", "Workflow", "Dependency", "Component", "Interface", "Document"] 
+          },
+          "properties": { "type": "object" }
+        },
+        "required": ["id", "label", "type"]
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": { "type": "string" },
+          "target": { "type": "string" },
+          "relationship": { "type": "string" },
+          "properties": { "type": "object" }
+        },
+        "required": ["source", "target", "relationship"]
+      }
+    }
+  },
+  "required": ["nodes", "edges"],
+  "additionalProperties": false
+}

@@ -86,6 +86,12 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Schemas',
+        items: [
+          { text: 'Specification Schemas', link: '/docs/20-SCHEMA/' }
+        ]
+      },
+      {
         text: 'Governance',
         items: [
           { text: 'License', link: '/license' }

@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OWIS Artifact Schema",
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string"
+    },
+    "hash": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["Markdown", "YAML", "JSON", "TOML", "XML", "HTML", "PDF", "DOCX", "Plain Text"]
+    },
+    "category": {
+      "type": "string",
+      "enum": ["canonical", "authoritative", "implementation", "reference", "temporary", "speculative", "deprecated"]
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "parsing_status": {
+      "type": "string",
+      "enum": ["pending", "parsed", "failed"]
+    }
+  },
+  "required": ["path", "hash", "type", "category", "parsing_status"],
+  "additionalProperties": false
+}
