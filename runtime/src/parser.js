@@ -65,8 +65,8 @@ function parseWorkspace(workspacePath) {
   });
 
   // Load config if exists
-  let config = { name: path.basename(absolutePath), version: "0.1" };
-  const configPath = path.join(absolutePath, 'owis.json');
+  let config = { name: path.basename(absolutePath), version: "0.1.0" };
+  const configPath = path.join(absolutePath, 'workspace.json');
   if (fs.existsSync(configPath)) {
     config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
   }

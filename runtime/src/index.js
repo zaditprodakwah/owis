@@ -15,7 +15,7 @@ try {
   console.log('✓ Workspace scanned successfully.');
 
   // Validate workspace config if exists
-  const configPath = path.join(targetWorkspace, 'owis.json');
+  const configPath = path.join(targetWorkspace, 'workspace.json');
   if (fs.existsSync(configPath)) {
     const configData = JSON.parse(fs.readFileSync(configPath, 'utf8'));
     const configVal = validate('workspace', configData);

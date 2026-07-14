@@ -1,7 +1,7 @@
 ---
 id: owis-runtime-spec
 title: Reference Runtime Specification
-version: 1.0.0-draft
+version: 0.1.0
 status: canonical
 category: Runtime
 last_updated: 2026-07-15

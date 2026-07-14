@@ -1,0 +1,35 @@
+name: OWIS Integrity Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 24
+
+    - name: Install Root Dependencies
+      run: npm install
+
+    - name: Install Runtime Dependencies
+      run: cd runtime && npm install
+
+    - name: Install CLI Dependencies
+      run: cd cli && npm install
+
+    - name: Install SDK Dependencies
+      run: cd sdk && npm install
+
+    - name: Run OWIS Validation Suite
+      run: npm run validate

@@ -1,7 +1,7 @@
 ---
 id: owis-sdk-spec
 title: SDK Integration Specification
-version: 1.0.0-draft
+version: 0.1.0
 status: canonical
 category: SDK
 last_updated: 2026-07-15

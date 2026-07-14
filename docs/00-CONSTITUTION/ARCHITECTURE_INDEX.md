@@ -8,6 +8,10 @@ This document provides a machine-readable directory map of the Open Workspace In
 
 * [Project Constitution](../00-CONSTITUTION/Project_Constitution.md)
   * Defines the vision, core thesis, and design principles of the OWIS standard.
+* [Documentation Governance](../00-CONSTITUTION/DOCUMENTATION_GOVERNANCE.md)
+  * Defines documentation lifecycles, classifications, and change-control rules.
+* [Release Governance](../00-CONSTITUTION/RELEASE_GOVERNANCE.md)
+  * Defines version alignment rules and SemVer standards.
 
 ---
 

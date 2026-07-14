@@ -52,7 +52,7 @@ This repository is organized according to the **Document Architecture Specificat
 
 ## Quick Start
 
-To get started with OWIS as a developer, contributor, or AI agent, please read the [Getting Started Guide](GETTING_STARTED.md). 
+To get started with OWIS as a developer, contributor, or AI agent, please read the [Getting Started Guide](getting_started.md). 
 
 This guide details:
 1. The repository structure and document reading order.
@@ -69,9 +69,9 @@ OWIS is currently in the **Foundation & Specification** phases. All foundational
 
 ## Links
 
-* [Getting Started Guide](GETTING_STARTED.md)
-* [Project Roadmap](ROADMAP.md)
-* [Contributing Guidelines](CONTRIBUTING.md)
-* [Changelog](CHANGELOG.md)
-* [Code of Conduct](CODE_OF_CONDUCT.md)
-* [MIT License](LICENSE.md)
+* [Getting Started Guide](getting_started.md)
+* [Project Roadmap](roadmap.md)
+* [Contributing Guidelines](contributing.md)
+* [Changelog](changelog.md)
+* [Code of Conduct](code_of_conduct.md)
+* [MIT License](license.md)

@@ -1,7 +1,7 @@
 ---
 id: owis-schemas
 title: Specification Schemas
-version: 1.0.0-draft
+version: 0.1.0
 status: canonical
 category: Schema
 last_updated: 2026-07-15

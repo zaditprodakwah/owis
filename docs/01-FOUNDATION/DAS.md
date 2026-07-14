@@ -1,7 +1,7 @@
 ---
 id: owis-das
 title: Document Architecture Specification
-version: 1.0
+version: 0.1.0
 status: canonical
 category: Foundation
 last_updated: 2026-07-15

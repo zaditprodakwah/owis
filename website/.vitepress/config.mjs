@@ -67,6 +67,7 @@ export default defineConfig({
         items: [
           { text: 'Project Constitution', link: '/docs/00-CONSTITUTION/Project_Constitution' },
           { text: 'Documentation Governance', link: '/docs/00-CONSTITUTION/DOCUMENTATION_GOVERNANCE' },
+          { text: 'Release Governance', link: '/docs/00-CONSTITUTION/RELEASE_GOVERNANCE' },
           { text: 'Architecture Index', link: '/docs/00-CONSTITUTION/ARCHITECTURE_INDEX' }
         ]
       },
@@ -134,7 +135,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'OWIS Specification v0.1 | Documentation v0.1 | Released under the MIT License.',
+      message: 'OWIS Specification v0.1.0 | Documentation v0.1.0 | Released under the MIT License.',
       copyright: 'Copyright © 2026-present OWIS Project Contributors'
     },
 

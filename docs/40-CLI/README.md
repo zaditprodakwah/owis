@@ -1,7 +1,7 @@
 ---
 id: owis-cli-spec
 title: CLI Tooling Specification
-version: 1.0.0-draft
+version: 0.1.0
 status: canonical
 category: CLI
 last_updated: 2026-07-15

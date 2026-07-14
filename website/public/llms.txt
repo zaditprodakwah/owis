@@ -3,16 +3,26 @@
 > Open Workspace Intelligence Specification standard.
 
 ## Metadata
-* Specification Version: v0.1
-* Documentation Version: v0.1
+* Specification Version: v0.1.0
+* Documentation Version: v0.1.0
 * License: MIT License
 * Repository: https://github.com/zaditprodakwah/owis
+
+## Machine Usage
+
+OWIS documents are structured for:
+
+- AI agents
+- developer tools
+- workspace analyzers
+- automation systems
 
 ## Navigation Map
 
 ### Constitution
 * [Project Constitution](/docs/00-CONSTITUTION/Project_Constitution): Vision, core thesis, and principles.
 * [Documentation Governance](/docs/00-CONSTITUTION/DOCUMENTATION_GOVERNANCE): Spec lifecycle stages and document control.
+* [Release Governance](/docs/00-CONSTITUTION/RELEASE_GOVERNANCE): Release criteria and SemVer versioning rules.
 * [Architecture Index](/docs/00-CONSTITUTION/ARCHITECTURE_INDEX): Index of all specification files.
 
 ### Foundation

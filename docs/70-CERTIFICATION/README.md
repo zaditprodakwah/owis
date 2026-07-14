@@ -1,7 +1,7 @@
 ---
 id: owis-certification-spec
 title: Certification Specification
-version: 1.0.0-draft
+version: 0.1.0
 status: canonical
 category: Certification
 last_updated: 2026-07-15

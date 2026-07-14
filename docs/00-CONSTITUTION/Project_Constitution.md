@@ -1,7 +1,7 @@
 ---
 id: owis-constitution
 title: Project Constitution
-version: 0.1
+version: 0.1.0
 status: freeze-candidate
 category: Constitution
 last_updated: 2026-07-15

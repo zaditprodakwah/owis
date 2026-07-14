@@ -1,8 +1,8 @@
 {
   "workspace": {
     "root": "/Users/mac/Downloads/PROYEK/OWIS/examples/test-workspace",
-    "scanned_files": 3,
-    "scanned_directories": 0,
+    "scanned_files": 4,
+    "scanned_directories": 1,
     "ignored_paths": [
       "node_modules",
       ".git",
@@ -15,12 +15,12 @@
       ".js",
       ".mjs"
     ],
-    "generated_at": "2026-07-14T17:41:33.811Z"
+    "generated_at": "2026-07-14T17:56:18.775Z"
   },
   "project": {
     "name": "test-workspace-example",
     "description": "Auto-generated workspace report by OWIS Reference Runtime",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "maturity": "Draft",
     "repository_type": "git",
     "domain": "software-development",
@@ -38,7 +38,9 @@
       "README.md"
     ],
     "secondary": [],
-    "reference": [],
+    "reference": [
+      "artifacts/sample.md"
+    ],
     "temporary": []
   },
   "knowledge": {
@@ -69,15 +71,19 @@
     "modules": [
       {
         "path": "README.md",
-        "size": 217
+        "size": 1349
       },
       {
-        "path": "owis.json",
-        "size": 136
+        "path": "artifacts/sample.md",
+        "size": 117
       },
       {
         "path": "wir.json",
-        "size": 2454
+        "size": 2635
+      },
+      {
+        "path": "workspace.json",
+        "size": 136
       }
     ],
     "services": [],
