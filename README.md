@@ -63,7 +63,14 @@ This guide details:
 
 ## Project Status
 
-OWIS is currently in the **Foundation & Specification** phases. All foundational architecture documents and core specification candidates are draft canonical and frozen. Downstream components (JSON/YAML schemas, CLIs, and SDKs) are scheduled for upcoming stages.
+**Current Release: OWIS v0.1.0**
+
+OWIS has reached its **Public Specification Baseline**.
+Available via:
+- **GitHub Release**: [v0.1.0](https://github.com/zaditprodakwah/owis/releases/tag/v0.1.0)
+- **NPM CLI**: `npm install -g @prodakwah/owis`
+- **NPM SDK**: `npm install @prodakwah/owis-sdk`
+- **Documentation Portal**: [https://zaditprodakwah.github.io/owis/](https://zaditprodakwah.github.io/owis/)
 
 ---
 

@@ -4,6 +4,9 @@ All notable changes to the OWIS specification will be documented in this file.
 
 ## v0.1.0
 
+**Status**: Public Specification Baseline
+**Distribution**: GitHub Release, NPM (`@prodakwah/owis`, `@prodakwah/owis-sdk`)
+
 Added:
 - External Adoption Testing framework and mock workspaces
 - Agent Compatibility Testing specification
