@@ -35,3 +35,9 @@
 
 ### SDK
 * [SDK Integration](/docs/50-SDK/): Programmatic Node API bindings and types.
+
+### Registry
+* [Registry Catalog](/docs/60-REGISTRY/): Catalog specifications for OWIS extensions.
+
+### Certification
+* [Agent Certification](/docs/70-CERTIFICATION/): Compliance testing for UARS compatibility.

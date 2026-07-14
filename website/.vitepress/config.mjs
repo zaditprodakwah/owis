@@ -110,6 +110,18 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Registry',
+        items: [
+          { text: 'Registry Catalog', link: '/docs/60-REGISTRY/' }
+        ]
+      },
+      {
+        text: 'Certification',
+        items: [
+          { text: 'Agent Certification', link: '/docs/70-CERTIFICATION/' }
+        ]
+      },
+      {
         text: 'Governance',
         items: [
           { text: 'License', link: '/license' }
