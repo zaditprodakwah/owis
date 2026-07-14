@@ -1,0 +1,18 @@
+{
+  "name": "@prodakwah/owis-lint",
+  "version": "0.1.0",
+  "description": "OWIS Architecture Linter",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/index.test.js"
+  },
+  "keywords": [
+    "owis",
+    "lint",
+    "architecture"
+  ],
+  "author": "Zadit Prodakwah",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -33,8 +33,13 @@ try {
   runCommand('npm test', path.join(rootDir, 'sdk'));
   console.log('✓ SDK passed');
 
-  // 5. Build documentation portal
-  console.log('\n[5/5] Building documentation portal...');
+  // 5. Run Lint tests
+  console.log('\n[5/6] Running Lint engine tests...');
+  runCommand('npm test', path.join(rootDir, 'lint'));
+  console.log('✓ Lint passed');
+
+  // 6. Build documentation portal
+  console.log('\n[6/6] Building documentation portal...');
   runCommand('npx vitepress build website', rootDir);
   console.log('✓ Documentation built');
 
