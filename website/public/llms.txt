@@ -32,3 +32,6 @@
 
 ### Tooling
 * [CLI Tooling](/docs/40-CLI/): Command-line tool wrapper for the OWIS runtime.
+
+### SDK
+* [SDK Integration](/docs/50-SDK/): Programmatic Node API bindings and types.

@@ -1,0 +1,26 @@
+const { parseWorkspace } = require('../../runtime/src/parser');
+const { validate } = require('../../runtime/src/validator');
+
+/**
+ * Parses a target workspace and builds a synthesized Workspace Intelligence Report.
+ * @param {string} workspacePath Absolute or relative path to the workspace folder.
+ * @returns {object} The generated WIR payload.
+ */
+function parse(workspacePath) {
+  return parseWorkspace(workspacePath);
+}
+
+/**
+ * Validates data against a specific JSON schema of the OWIS specification.
+ * @param {string} schemaName The name of the target schema (e.g. 'wir', 'workspace').
+ * @param {object} data The payload data to validate.
+ * @returns {{valid: boolean, errors: Array}} An object indicating validity and validation errors.
+ */
+function check(schemaName, data) {
+  return validate(schemaName, data);
+}
+
+module.exports = {
+  parse,
+  check
+};

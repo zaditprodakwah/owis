@@ -104,6 +104,12 @@ export default defineConfig({
         ]
       },
       {
+        text: 'SDK',
+        items: [
+          { text: 'SDK Integration', link: '/docs/50-SDK/' }
+        ]
+      },
+      {
         text: 'Governance',
         items: [
           { text: 'License', link: '/license' }
