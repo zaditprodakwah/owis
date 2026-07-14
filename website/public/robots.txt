@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zaditprodakwah.github.io/owis/sitemap.xml

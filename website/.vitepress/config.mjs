@@ -8,16 +8,23 @@ export default defineConfig({
   cleanUrls: true,
   srcDir: '..',
   srcExclude: ['**/node_modules/**', 'website/dist/**', 'website/cache/**'],
+  sitemap: {
+    hostname: 'https://zaditprodakwah.github.io/owis/'
+  },
   rewrites: {
     'README.md': 'index.md',
+    'GETTING_STARTED.md': 'getting_started.md',
     'ROADMAP.md': 'roadmap.md',
     'CHANGELOG.md': 'changelog.md',
-    'CONTRIBUTING.md': 'contributing.md'
+    'CONTRIBUTING.md': 'contributing.md',
+    'CODE_OF_CONDUCT.md': 'code_of_conduct.md',
+    'LICENSE.md': 'license.md'
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Getting Started', link: '/getting_started' },
       { text: 'Constitution', link: '/docs/00-CONSTITUTION/Project_Constitution' },
       { text: 'Specification', link: '/docs/10-SPEC/UARS' },
       { text: 'Roadmap', link: '/roadmap' }
@@ -28,9 +35,11 @@ export default defineConfig({
         text: 'Introduction',
         items: [
           { text: 'What is OWIS?', link: '/' },
+          { text: 'Getting Started', link: '/getting_started' },
           { text: 'Roadmap', link: '/roadmap' },
           { text: 'Changelog', link: '/changelog' },
-          { text: 'Contributing', link: '/contributing' }
+          { text: 'Contributing', link: '/contributing' },
+          { text: 'Code of Conduct', link: '/code_of_conduct' }
         ]
       },
       {
@@ -53,12 +62,23 @@ export default defineConfig({
           { text: 'Universal Agent Runtime (UARS)', link: '/docs/10-SPEC/UARS' },
           { text: 'Workspace Intelligence Report (WIR)', link: '/docs/10-SPEC/WIR' }
         ]
+      },
+      {
+        text: 'Governance',
+        items: [
+          { text: 'License', link: '/license' }
+        ]
       }
     ],
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/zaditprodakwah/owis' }
     ],
+
+    footer: {
+      message: 'OWIS Specification v0.1 | Documentation v0.1 | Released under the MIT License.',
+      copyright: 'Copyright © 2026-present OWIS Project Contributors'
+    },
 
     search: {
       provider: 'local'
