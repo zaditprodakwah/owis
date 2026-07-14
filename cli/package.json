@@ -1,0 +1,14 @@
+{
+  "name": "owis-cli",
+  "version": "0.1.0",
+  "description": "OWIS Command Line Tool",
+  "bin": {
+    "owis": "./bin/owis.js"
+  },
+  "scripts": {
+    "test": "node ./bin/owis.js ../examples/test-workspace"
+  },
+  "dependencies": {
+    "ajv": "^8.12.0"
+  }
+}

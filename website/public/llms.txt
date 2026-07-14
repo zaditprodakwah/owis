@@ -29,3 +29,6 @@
 
 ### Runtime
 * [Reference Runtime](/docs/30-RUNTIME/): Engine for workspace parsing and WIR generation.
+
+### Tooling
+* [CLI Tooling](/docs/40-CLI/): Command-line tool wrapper for the OWIS runtime.

@@ -98,6 +98,12 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Tooling',
+        items: [
+          { text: 'CLI Tooling', link: '/docs/40-CLI/' }
+        ]
+      },
+      {
         text: 'Governance',
         items: [
           { text: 'License', link: '/license' }

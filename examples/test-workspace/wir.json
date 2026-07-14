@@ -1,7 +1,7 @@
 {
   "workspace": {
     "root": "/Users/mac/Downloads/PROYEK/OWIS/examples/test-workspace",
-    "scanned_files": 2,
+    "scanned_files": 3,
     "scanned_directories": 0,
     "ignored_paths": [
       "node_modules",
@@ -15,7 +15,7 @@
       ".js",
       ".mjs"
     ],
-    "generated_at": "2026-07-14T17:39:55.419Z"
+    "generated_at": "2026-07-14T17:41:33.811Z"
   },
   "project": {
     "name": "test-workspace-example",
@@ -74,6 +74,10 @@
       {
         "path": "owis.json",
         "size": 136
+      },
+      {
+        "path": "wir.json",
+        "size": 2454
       }
     ],
     "services": [],
