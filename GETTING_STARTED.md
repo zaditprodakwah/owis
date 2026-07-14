@@ -41,7 +41,10 @@ To understand OWIS properly, we recommend reading the files in the following ord
 
 ## Current Project Status
 
-OWIS is currently in the **Foundation & Specification** phases. All foundational architecture documents (`DAS.md`, `CAS.md`, `RAS.md`) and core specification candidates (`UARS.md`, `WIR.md`) are draft canonical and frozen. Downstream components (JSON/YAML schemas, CLIs, and SDKs) are scheduled for upcoming stages.
+OWIS has reached its **Public Specification Baseline (v0.1.0)**. 
+All foundational architecture documents (`DAS.md`, `CAS.md`, `RAS.md`), core specifications (`UARS.md`, `WIR.md`), JSON schemas, CLI runtime, and SDKs are now available for external consumption and adoption testing.
+
+You can install the CLI globally via `npm install -g owis` or integrate the SDK via `npm install owis-sdk`.
 
 ---
 
