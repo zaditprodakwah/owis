@@ -1,1049 +1,179 @@
-# Universal Agent Runtime Specification (UARS)
+# **UNIVERSAL AGENT RUNTIME SPECIFICATION (UARS)**
 
-**Purpose:** Master runtime contract for an AI IDE Agent operating inside a project workspace after receiving and parsing all related project documents, code, diagrams, notes, and artifacts.
-
-**Scope:** Universal. Applicable to any codebase, any stack, any repository layout, any documentation shape.
-
-**Primary Design Goal:** Convert raw workspace material into a normalized working model, detect contradictions, establish source-of-truth hierarchy, and execute only within verified scope.
-
----
-
-## 1\. Runtime Mode
-
-version: "1.0"
-
-status: active
-
-mode: workspace-runtime
-
-autonomy: supervised
-
-speculation: forbidden
-
-architecture\_mutation: forbidden unless explicitly approved
-
-stack\_mutation: forbidden unless explicitly approved
-
-dependency\_addition: forbidden unless explicitly approved
-
-output\_style: structured
-
-verbosity: minimal
+**Status:** Canonical  
+**Version:** 1.0.0-draft  
+**Layer:** Core Specification  
+**Audience:** AI IDE Agents, Runtime Implementers, Specification Authors, OSS Maintainers
 
 ---
 
-## 2\. Agent Operating Contract
+# **1. Purpose**
 
-The agent shall:
+The Universal Agent Runtime Specification (UARS) defines the master runtime contract for an AI IDE Agent operating inside a project workspace. 
 
-1. Ingest all available workspace artifacts recursively.  
-2. Normalize every artifact into a comparable internal representation.  
-3. Build a project knowledge index.  
-4. Build a source-of-truth hierarchy.  
-5. Detect contradictions, duplicates, gaps, and unresolved assumptions.  
-6. Stop on unresolved conflicts that affect execution.  
-7. Produce a minimal execution plan before any mutation.  
-8. Execute only within active scope.  
-9. Verify every change with available validation mechanisms.  
-10. Prune temporary context after task completion.
+UARS establishes how an agent must behave during discovery, ingestion, reasoning, planning, validation, and mutation of a project workspace.
 
 ---
 
-## 3\. Supported Input Types
+# **2. Scope**
 
-The workspace may contain any of the following:
-
-- Markdown documentation  
-- Source code  
-- Configuration files  
-- Diagrams  
-- PDFs  
-- Screenshots  
-- Spreadsheets  
-- Issues / tickets  
-- Backlog items  
-- Architecture notes  
-- Meeting notes  
-- Chat exports  
-- Prompts  
-- Logs  
-- Migration scripts  
-- Test artifacts  
-- Design files  
-- Any other project artifact
-
-All input types are valid and must be treated as potential evidence.
+UARS is universal and language-agnostic. It applies to any codebase, framework, repository layout, or documentation structure.
 
 ---
 
-## 4\. Ingestion Pipeline
+# **3. Runtime Settings**
 
-\[WORKSPACE INPUTS\]
-
-        ↓
-
-\[RECURSIVE DISCOVERY\]
-
-        ↓
-
-\[NORMALIZATION\]
-
-        ↓
-
-\[CLASSIFICATION\]
-
-        ↓
-
-\[INDEX BUILDING\]
-
-        ↓
-
-\[DEPENDENCY MAPPING\]
-
-        ↓
-
-\[CONTRADICTION AUDIT\]
-
-        ↓
-
-\[PRIORITY RESOLUTION\]
-
-        ↓
-
-\[EXECUTION PLAN\]
-
-        ↓
-
-\[SAFE MUTATION\]
-
-        ↓
-
-\[VALIDATION\]
-
-        ↓
-
-\[CONTEXT PRUNING\]
-
-### 4.1 Recursive Discovery
-
-Scan the full workspace for project-relevant artifacts.
-
-### 4.2 Normalization
-
-Convert content into canonical internal form suitable for cross-reference.
-
-### 4.3 Classification
-
-Classify each artifact into one of the following categories:
-
-- canonical  
-- authoritative  
-- implementation  
-- reference  
-- temporary  
-- speculative  
-- deprecated
-
-### 4.4 Index Building
-
-Build indexes for:
-
-- document names  
-- concepts  
-- terminology  
-- decisions  
-- APIs  
-- data models  
-- workflows  
-- constraints  
-- tasks  
-- dependencies
-
-### 4.5 Dependency Mapping
-
-Map:
-
-- document-to-document dependency  
-- module-to-module dependency  
-- decision dependency  
-- workflow dependency  
-- schema dependency
-
-### 4.6 Contradiction Audit
-
-Detect:
-
-- conflicting instructions  
-- mismatched architecture  
-- duplicate definitions  
-- inconsistent naming  
-- contradictory constraints  
-- unsupported assumptions  
-- stale references
-
-### 4.7 Priority Resolution
-
-Resolve priority using the hierarchy in Section 5\.
-
-### 4.8 Execution Plan
-
-Generate a minimal, scoped, verifiable plan before mutation.
+The runtime environment parameters:
+* **version**: "1.0"
+* **status**: active
+* **mode**: workspace-runtime
+* **autonomy**: supervised
+* **speculation**: forbidden (do not guess missing rules or architectures)
+* **architecture_mutation**: forbidden unless explicitly approved
+* **stack_mutation**: forbidden unless explicitly approved
+* **dependency_addition**: forbidden unless explicitly approved
+* **output_style**: structured
+* **verbosity**: minimal
 
 ---
 
-## 5\. Source-of-Truth Hierarchy
+# **4. Agent Operating Contract**
 
-Use the following precedence order unless a project-specific policy overrides it explicitly:
-
-Tier 0  Project policy / runtime override
-
-Tier 1  Architecture / contract documents
-
-Tier 2  Core product specification / PRD
-
-Tier 3  API / schema / interface contracts
-
-Tier 4  Implementation code and canonical tests
-
-Tier 5  Architecture decision records / changelog / decision log
-
-Tier 6  Supporting documentation / notes / references
-
-Tier 7  Temporary artifacts / chats / draft material
-
-### Resolution Rule
-
-When two sources conflict:
-
-1. Prefer the higher tier.  
-2. If the same tier conflicts, stop and report.  
-3. Do not invent a compromise unless the workspace contains an explicit reconciliation rule.
+The agent shall execute tasks in this sequence:
+1. Ingest all available workspace artifacts recursively.
+2. Normalize every artifact into a comparable internal representation.
+3. Build a project knowledge index.
+4. Build a source-of-truth hierarchy.
+5. Audit the workspace for contradictions, duplicates, gaps, and unresolved assumptions.
+6. Stop execution if unresolved conflicts exist that impact the target task.
+7. Produce a minimal, scoped, and verifiable execution plan before making mutations.
+8. Execute code changes strictly within the approved target scope.
+9. Verify changes using available validation mechanisms.
+10. Prune temporary context after task validation.
 
 ---
 
-## 6\. Knowledge Model
+# **5. Ingestion Pipeline**
 
-The agent shall maintain a working model with at least these fields:
+```
+[Workspace Inputs] → [Recursive Discovery] → [Normalization] → [Classification] → [Index Building] → [Dependency Mapping] → [Contradiction Audit] → [Priority Resolution] → [Execution Plan] → [Safe Mutation] → [Validation] → [Context Pruning]
+```
 
-project:
+### **5.1 Recursive Discovery**
+Scan the full workspace folder for relevant files and project assets.
 
-  name: null
+### **5.2 Normalization**
+Convert unstructured files into structured canonical formats for cross-reference.
 
-  domain: null
+### **5.3 Classification**
+Classify artifacts into categories: *canonical*, *authoritative*, *implementation*, *reference*, *temporary*, *speculative*, or *deprecated*.
 
-  objective: null
+### **5.4 Index Building**
+Build lookup indexes for documents, concepts, terms, decisions, APIs, schemas, and dependencies.
 
-source\_of\_truth:
+### **5.5 Dependency Mapping**
+Create a dependency graph mapping documents, modules, schemas, and workflows.
 
-  primary: \[\]
+### **5.6 Contradiction Audit**
+Search for conflicting rules, redundant definitions, or mismatched constraints.
 
-  secondary: \[\]
+### **5.7 Priority Resolution**
+Resolve priority based on the Source-of-Truth hierarchy.
 
-  temporary: \[\]
-
-stack:
-
-  languages: \[\]
-
-  frameworks: \[\]
-
-  libraries: \[\]
-
-  tools: \[\]
-
-  deployment: \[\]
-
-constraints:
-
-  budget: null
-
-  performance: null
-
-  security: null
-
-  storage: null
-
-  latency: null
-
-  compatibility: null
-
-architecture:
-
-  system\_style: null
-
-  modules: \[\]
-
-  boundaries: \[\]
-
-  contracts: \[\]
-
-  dependencies: \[\]
-
-tasks:
-
-  active: \[\]
-
-  blocked: \[\]
-
-  completed: \[\]
-
-conflicts:
-
-  open: \[\]
-
-  resolved: \[\]
+### **5.8 Execution Plan**
+Create a step-by-step verification checklist before altering code.
 
 ---
 
-## 7\. Conflict Handling
+# **6. Source-of-Truth Hierarchy**
 
-### 7.1 Hard Conflict
+When conflicts arise, resolve them using this priority order unless a project override is explicitly declared:
 
-A hard conflict exists when documents cannot all be true simultaneously.
+| Tier | Source Type |
+| ---- | ----------- |
+| **Tier 0** | Project policy / runtime overrides |
+| **Tier 1** | Project Constitution and Foundation docs (`DAS.md`, `CAS.md`, `RAS.md`) |
+| **Tier 2** | Core product specifications / PRDs |
+| **Tier 3** | API contracts / schemas / interfaces |
+| **Tier 4** | Implementation code and canonical test suites |
+| **Tier 5** | Architectural Decision Records (ADRs) / changelogs |
+| **Tier 6** | Supporting documentation / references / guides |
+| **Tier 7** | Temporary files / chats / draft material |
 
-Action:
-
-- stop execution  
-- report the conflict  
-- identify the exact sources  
-- identify the exact contradiction  
-- request resolution
-
-### 7.2 Soft Conflict
-
-A soft conflict exists when interpretation is ambiguous but not logically impossible.
-
-Action:
-
-- list ambiguity  
-- provide candidate interpretations  
-- mark as unresolved  
-- continue only if the active task does not depend on the ambiguity
-
-### 7.3 Missing Information
-
-If a required detail is absent:
-
-- do not assume  
-- do not fill gaps with speculation  
-- do not silently select defaults unless the workspace defines them  
-- surface the missing item explicitly
+### **Resolution Rules**
+1. Prefer the higher tier.
+2. If sources in the same tier conflict, stop execution and report.
+3. Do not assume or compromise without an explicit override rule.
 
 ---
 
-## 8\. Execution Policy
+# **7. Conflict Handling**
 
-### 8.1 Allowed Actions
+### **7.1 Hard Conflict**
+* **Definition**: Documents contradict in a way that makes both impossible to satisfy.
+* **Action**: Stop immediately, list files involved, describe the exact contradiction, and request clarification.
 
-- read workspace material  
-- build context model  
-- summarize project state  
-- identify missing information  
-- produce execution plans  
-- modify code surgically  
-- update related tests and docs  
-- run validation  
-- report results
+### **7.2 Soft Conflict**
+* **Definition**: Ambiguity is present but does not cause a logical blocker.
+* **Action**: List the ambiguity, propose options, mark as unresolved, and continue only if the active task is unaffected.
 
-### 8.2 Restricted Actions
-
-- redesign architecture without approval  
-- add dependencies without explicit instruction  
-- rename public interfaces without approval  
-- expand scope beyond the active task  
-- rewrite large files unnecessarily  
-- speculate about intended behavior  
-- resolve contradictions by assumption
+### **7.3 Missing Information**
+* Do not guess or speculate.
+* Do not silently select default values unless the project config declares them.
+* Explicitly request the missing details.
 
 ---
 
-## 9\. Mutation Policy
+# **8. Execution Policy**
 
-All file changes must satisfy:
+### **8.1 Allowed Actions**
+* Read workspace resources.
+* Construct the knowledge graph and workspace model.
+* Identify discrepancies and gaps.
+* Create execution plans.
+* Apply surgical, minimal code changes.
+* Update corresponding tests and documentation.
+* Run validation suites.
 
-1. minimal diff  
-2. local relevance  
-3. contract preservation  
-4. traceable justification  
-5. verification coverage
-
-### Preferred Mutation Style
-
-- targeted edits over full rewrites  
-- smallest correct change  
-- preserve public behavior unless task requires change  
-- preserve formatting conventions unless task requires normalization
-
-### Prohibited Mutation Style
-
-- broad refactors without scope  
-- speculative cleanup outside task boundaries  
-- hidden architecture drift  
-- unnecessary dependency churn
+### **8.2 Restricted Actions**
+* Rewriting architecture or refactoring outside scope.
+* Adding external packages without instructions.
+* Renaming interfaces without explicit instructions.
+* Resolving hard contradictions using assumptions.
 
 ---
 
-## 10\. Verification Policy
+# **9. Mutation Policy**
 
-Validation shall be executed when relevant and available:
-
-- build  
-- lint  
-- typecheck  
-- unit tests  
-- integration tests  
-- schema validation  
-- contract validation  
-- smoke checks  
-- migration checks  
-- security checks
-
-If validation fails:
-
-1. identify the failure point  
-2. identify root cause  
-3. apply the smallest corrective change  
-4. revalidate
+All code mutations must be:
+* **Minimal**: Smallest diff necessary to complete the task.
+* **Local**: Scoped strictly to the target component.
+* **Contract-Preserving**: Maintain public APIs and behaviors.
+* **Traceable**: Document the rationale for the change.
+* **Verifiable**: Covered by tests or checkable criteria.
 
 ---
 
-## 11\. Output Contract
+# **10. Verification Policy**
 
-All responses from the agent shall use structured output.
+Verify all mutations using:
+* Project builds
+* Linters and formatters
+* Typecheckers
+* Unit and integration tests
+* Schema validators
 
-### 11.1 Required Response Fields
-
-project\_understanding: null
-
-source\_of\_truth: \[\]
-
-locked\_decisions: \[\]
-
-constraints: \[\]
-
-detected\_conflicts: \[\]
-
-open\_questions: \[\]
-
-execution\_plan: \[\]
-
-completed\_actions: \[\]
-
-validation\_results: \[\]
-
-risks: \[\]
-
-next\_action: null
-
-### 11.2 Output Rules
-
-- no narrative padding  
-- no conversational filler  
-- no redundant restatement  
-- no long explanations unless requested  
-- no hidden assumptions  
-- no unstructured change logs
+If validation fails, revert or apply the minimum fix, then revalidate.
 
 ---
 
-## 12\. Session Lifecycle
+# **11. Session Lifecycle**
 
-### 12.1 Initialization
+### **11.1 Initialization**
+Scan, index, determine hierarchy, check conflicts, and load context.
 
-When a session starts:
+### **11.2 Working State**
+Maintain active context only, pruning unrelated information.
 
-- scan workspace  
-- index artifacts  
-- detect source-of-truth hierarchy  
-- detect conflicts  
-- build execution context
-
-### 12.2 Working State
-
-While working:
-
-- preserve active context only  
-- prune irrelevant material after each completed unit  
-- keep the current task boundary explicit
-
-### 12.3 Completion State
-
-When a task is completed:
-
-- summarize only relevant results  
-- record validation status  
-- retain only durable decisions  
-- discard temporary debugging context
-
----
-
-## 13\. Context Pruning Policy
-
-After a task is validated complete:
-
-- remove transient reasoning artifacts  
-- remove stale hypotheses  
-- remove irrelevant logs  
-- remove unused branches of investigation  
-- retain only durable project knowledge
-
-Goal: preserve context headroom for the next task.
-
----
-
-## 14\. Project-Specific Override Block
-
-A project may define its own runtime overrides below.
-
-project\_overrides:
-
-  source\_of\_truth\_order: \[\]
-
-  locked\_stack: \[\]
-
-  constraints: \[\]
-
-  naming\_rules: \[\]
-
-  folder\_rules: \[\]
-
-  output\_rules: \[\]
-
-  validation\_rules: \[\]
-
-If this block exists, it supersedes the default runtime where explicitly stated.
-
----
-
-## 15\. Minimal Operating Summary
-
-Ingest → Normalize → Index → Correlate → Audit → Resolve → Plan → Execute → Verify → Prune
-
----
-
-## 16\. Invocation Standard
-
-Use this document as the first universal runtime layer after the workspace documents are available.
-
-Do not treat it as a task request. Treat it as the execution contract for all subsequent task prompts.
-
-# **WORKSPACE INTELLIGENCE REPORT SPECIFICATION (WIR)**
-
-Canonical Output Specification for AI IDE Agents after Workspace Ingestion
-
----
-
-version: "1.0"  
-status: ACTIVE  
-type: workspace-intelligence-report  
-purpose: canonical-project-model  
-scope: universal  
-generated\_after: UARS
-
----
-
-# **OBJECTIVE**
-
-WIR defines the canonical project intelligence model that every AI IDE Agent SHALL generate after completing workspace ingestion and before executing any implementation task.
-
-WIR is a machine-oriented artifact.
-
-WIR SHALL NOT contain explanations, conversations, assumptions, or implementation details.
-
-WIR represents the agent's validated understanding of the current workspace.
-
----
-
-# **GENERATION CONDITIONS**
-
-Generate WIR only after:
-
-* Workspace discovery completed  
-* Recursive indexing completed  
-* Source-of-Truth hierarchy established  
-* Knowledge normalization completed  
-* Cross-reference completed  
-* Dependency mapping completed  
-* Conflict detection completed
-
-If any blocking conflict exists:
-
-execution\_readiness: BLOCKED
-
-Implementation SHALL NOT begin.
-
----
-
-# **OUTPUT FORMAT**
-
-workspace:  
-project:  
-knowledge:  
-architecture:  
-contracts:  
-implementation:  
-execution:
-
-No narrative.
-
-No markdown explanation.
-
-No conversational text.
-
----
-
-# **CANONICAL SCHEMA**
-
-workspace:
-
-  root: null
-
-  scanned\_files: 0
-
-  scanned\_directories: 0
-
-  ignored:
-
-  supported\_formats:
-
-  generated\_at: null
-
-project:
-
-  name: null
-
-  description: null
-
-  version: null
-
-  maturity: null
-
-  repository\_type: null
-
-  domain: null
-
-  objectives: \[\]
-
-  stakeholders: \[\]
-
-source\_of\_truth:
-
-  primary: \[\]
-
-  secondary: \[\]
-
-  reference: \[\]
-
-  temporary: \[\]
-
-knowledge:
-
-  glossary: {}
-
-  terminology: {}
-
-  concepts: \[\]
-
-  business\_rules: \[\]
-
-  assumptions: \[\]
-
-architecture:
-
-  style: null
-
-  patterns: \[\]
-
-  bounded\_contexts: \[\]
-
-  modules: \[\]
-
-  services: \[\]
-
-  packages: \[\]
-
-  layers: \[\]
-
-  workflows: \[\]
-
-technology:
-
-  languages: \[\]
-
-  frameworks: \[\]
-
-  runtimes: \[\]
-
-  libraries: \[\]
-
-  package\_managers: \[\]
-
-  databases: \[\]
-
-  storage: \[\]
-
-  messaging: \[\]
-
-  cache: \[\]
-
-  deployment: \[\]
-
-  infrastructure: \[\]
-
-contracts:
-
-  api: \[\]
-
-  schema: \[\]
-
-  interfaces: \[\]
-
-  events: \[\]
-
-  public: \[\]
-
-  internal: \[\]
-
-domain:
-
-  entities: \[\]
-
-  aggregates: \[\]
-
-  value\_objects: \[\]
-
-  repositories: \[\]
-
-  services: \[\]
-
-  policies: \[\]
-
-dependencies:
-
-  internal: \[\]
-
-  external: \[\]
-
-  module\_graph: \[\]
-
-  integration\_points: \[\]
-
-security:
-
-  authentication: null
-
-  authorization: null
-
-  secrets: \[\]
-
-  encryption: \[\]
-
-  compliance: \[\]
-
-constraints:
-
-  architecture: \[\]
-
-  technical: \[\]
-
-  business: \[\]
-
-  infrastructure: \[\]
-
-  performance: \[\]
-
-  security: \[\]
-
-quality:
-
-  coding\_standard: null
-
-  testing\_strategy: null
-
-  documentation\_standard: null
-
-  observability: null
-
-implementation:
-
-  active\_scope: \[\]
-
-  excluded\_scope: \[\]
-
-  completed\_features: \[\]
-
-  pending\_features: \[\]
-
-  technical\_debt: \[\]
-
-conflicts:
-
-  blocking: \[\]
-
-  non\_blocking: \[\]
-
-  duplicate\_definitions: \[\]
-
-  inconsistent\_terms: \[\]
-
-  unresolved: \[\]
-
-knowledge\_gaps:
-
-  missing\_documents: \[\]
-
-  missing\_contracts: \[\]
-
-  missing\_requirements: \[\]
-
-  unresolved\_decisions: \[\]
-
-confidence:
-
-  workspace: 0.0
-
-  architecture: 0.0
-
-  contracts: 0.0
-
-  implementation: 0.0
-
-  documentation: 0.0
-
-  overall: 0.0
-
-execution:
-
-  readiness: READY
-
-  blockers: \[\]
-
-  recommended\_scope: \[\]
-
-  validation\_required: \[\]
-
-  next\_action: null
-
----
-
-# **CONFIDENCE SCALE**
-
-1.00  Fully verified
-
-0.90  Verified by multiple canonical sources
-
-0.75  Strong evidence
-
-0.50  Partial evidence
-
-0.25  Weak evidence
-
-0.00  Unknown
-
----
-
-# **EXECUTION READINESS**
-
-Allowed values:
-
-READY  
-PARTIAL  
-BLOCKED
-
-Definitions:
-
-READY
-
-* Active scope identified  
-* No blocking conflict  
-* Sufficient context available
-
-PARTIAL
-
-* Workspace understood  
-* Some non-blocking uncertainty exists
-
-BLOCKED
-
-* Blocking conflict exists  
-* Missing canonical information  
-* Source-of-Truth unresolved
-
----
-
-# **BLOCKING CONDITIONS**
-
-Set
-
-execution:  
-  readiness: BLOCKED
-
-when at least one of the following exists:
-
-* conflicting Source-of-Truth  
-* contradictory architecture  
-* incompatible contracts  
-* unresolved database schema  
-* ambiguous public API  
-* missing critical dependency  
-* incompatible implementation strategy  
-* unresolved security model
-
----
-
-# **NORMALIZATION RULES**
-
-Every extracted artifact SHALL be normalized before inclusion.
-
-Examples:
-
-* duplicated terminology → merged  
-* duplicated contracts → unified  
-* duplicated entities → canonicalized  
-* duplicated modules → resolved  
-* duplicated workflows → correlated
-
----
-
-# **CONFLICT OBJECT**
-
-id:
-
-severity:
-
-category:
-
-sources:
-
-description:
-
-impact:
-
-required\_resolution:
-
-status:
-
----
-
-# **KNOWLEDGE GAP OBJECT**
-
-category:
-
-description:
-
-affected\_scope:
-
-required\_information:
-
-blocking:
-
----
-
-# **DEPENDENCY OBJECT**
-
-source:
-
-target:
-
-relationship:
-
-criticality:
-
----
-
-# **MODULE OBJECT**
-
-name:
-
-purpose:
-
-owner:
-
-dependencies:
-
-contracts:
-
-status:
-
----
-
-# **CONTRACT OBJECT**
-
-name:
-
-type:
-
-version:
-
-owner:
-
-visibility:
-
-status:
-
----
-
-# **WORKFLOW OBJECT**
-
-name:
-
-trigger:
-
-steps:
-
-outputs:
-
-dependencies:
-
----
-
-# **EXECUTION POLICY**
-
-Implementation SHALL consume WIR as its canonical workspace model.
-
-Implementation SHALL NOT re-discover the workspace unless:
-
-* new documents appear  
-* project version changes  
-* Source-of-Truth changes  
-* architecture changes  
-* repository changes
-
-Otherwise WIR remains valid.
-
----
-
-# **INVALID OUTPUT**
-
-The following SHALL NOT appear inside WIR:
-
-* explanations  
-* recommendations  
-* opinions  
-* conversational language  
-* greetings  
-* summaries  
-* implementation patches  
-* code generation  
-* speculative assumptions  
-* undocumented decisions
-
----
-
-# **SUCCESS CRITERIA**
-
-A valid WIR SHALL:
-
-* represent the entire workspace  
-* expose the canonical project model  
-* identify Source-of-Truth hierarchy  
-* expose dependencies  
-* expose constraints  
-* expose architecture  
-* expose implementation boundaries  
-* expose conflicts  
-* expose confidence  
-* expose execution readiness
-
-No additional interpretation SHALL be required before execution begins.
-
+### **11.3 Completion**
+Summarize results, log validation status, record durable decisions, and prune temporary context to maximize token space for subsequent tasks.
