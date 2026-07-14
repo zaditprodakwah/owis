@@ -1,0 +1,7 @@
+{
+  "name": "multi-stack-workspace",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "latest"
+  }
+}

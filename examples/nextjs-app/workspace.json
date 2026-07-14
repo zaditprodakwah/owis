@@ -1,0 +1,7 @@
+{
+  "name": "nextjs-app",
+  "version": "0.1.0",
+  "roots": ["."],
+  "exclude": ["node_modules", ".next"],
+  "settings": {}
+}

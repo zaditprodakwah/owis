@@ -47,6 +47,8 @@ function parseWorkspace(workspacePath) {
     if (f.ext === '.ts') languages.add('TypeScript');
     if (f.ext === '.md') languages.add('Markdown');
     if (f.ext === '.json') languages.add('JSON');
+    if (f.ext === '.py') languages.add('Python');
+    if (f.ext === '.go') languages.add('Go');
 
     if (f.relPath === 'package.json') {
       packageManagers.add('npm');

@@ -5,6 +5,11 @@ All notable changes to the OWIS specification will be documented in this file.
 ## v0.1.0
 
 Added:
+- External Adoption Testing framework and mock workspaces
+- Agent Compatibility Testing specification
+- CLI UX enhancements and robustness fixes for malformed workspaces
+- SDK Integration Example
+- GitHub Issue and PR templates for community readiness
 - Documentation portal hardening
 - Canonical navigation hierarchy
 - SEO metadata
@@ -15,6 +20,7 @@ Added:
 - Workspace Intelligence Report (WIR)
 
 Changed:
+- CLI output format to be structured and user-friendly
 - README documentation flow
 - Roadmap milestone structure
 

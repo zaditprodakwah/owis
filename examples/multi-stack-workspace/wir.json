@@ -1,8 +1,8 @@
 {
   "workspace": {
-    "root": "/Users/mac/Downloads/PROYEK/OWIS/examples/test-workspace",
-    "scanned_files": 4,
-    "scanned_directories": 1,
+    "root": "/Users/mac/Downloads/PROYEK/OWIS/examples/multi-stack-workspace",
+    "scanned_files": 2,
+    "scanned_directories": 0,
     "ignored_paths": [
       "node_modules",
       ".git",
@@ -15,10 +15,10 @@
       ".js",
       ".mjs"
     ],
-    "generated_at": "2026-07-14T18:14:24.466Z"
+    "generated_at": "2026-07-14T18:10:40.399Z"
   },
   "project": {
-    "name": "test-workspace-example",
+    "name": "multi-stack-workspace",
     "description": "Auto-generated workspace report by OWIS Reference Runtime",
     "version": "0.1.0",
     "maturity": "Draft",
@@ -34,13 +34,9 @@
     ]
   },
   "source_of_truth": {
-    "primary": [
-      "README.md"
-    ],
+    "primary": [],
     "secondary": [],
-    "reference": [
-      "artifacts/sample.md"
-    ],
+    "reference": [],
     "temporary": []
   },
   "knowledge": {
@@ -70,20 +66,12 @@
     ],
     "modules": [
       {
-        "path": "README.md",
-        "size": 1349
+        "path": "main.py",
+        "size": 46
       },
       {
-        "path": "artifacts/sample.md",
-        "size": 117
-      },
-      {
-        "path": "wir.json",
-        "size": 2635
-      },
-      {
-        "path": "workspace.json",
-        "size": 136
+        "path": "package.json",
+        "size": 109
       }
     ],
     "services": [],
@@ -96,7 +84,7 @@
   },
   "technology": {
     "languages": [
-      "Markdown",
+      "Python",
       "JSON"
     ],
     "frameworks": [],
@@ -104,7 +92,9 @@
       "Node.js"
     ],
     "libraries": [],
-    "package_managers": []
+    "package_managers": [
+      "npm"
+    ]
   },
   "contracts": {
     "api": [],

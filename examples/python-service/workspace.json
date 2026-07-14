@@ -1,0 +1,7 @@
+{
+  "name": "python-service",
+  "version": "0.1.0",
+  "roots": ["."],
+  "exclude": [".venv", "__pycache__"],
+  "settings": {}
+}
