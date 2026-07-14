@@ -1,0 +1,25 @@
+# OWIS
+
+> Open Workspace Intelligence Specification standard.
+
+## Metadata
+* Specification Version: v0.1
+* Documentation Version: v0.1
+* License: MIT License
+* Repository: https://github.com/zaditprodakwah/owis
+
+## Navigation Map
+
+### Constitution
+* [Project Constitution](/docs/00-CONSTITUTION/Project_Constitution): Vision, core thesis, and principles.
+* [Documentation Governance](/docs/00-CONSTITUTION/DOCUMENTATION_GOVERNANCE): Spec lifecycle stages and document control.
+* [Architecture Index](/docs/00-CONSTITUTION/ARCHITECTURE_INDEX): Index of all specification files.
+
+### Foundation
+* [Document Architecture Specification (DAS)](/docs/01-FOUNDATION/DAS): File layout layer definitions.
+* [Core Architecture Specification (CAS)](/docs/01-FOUNDATION/CAS): Ontologies and semantic graph relationships.
+* [Reference Architecture Specification (RAS)](/docs/01-FOUNDATION/RAS): Decoupled component outlines.
+
+### Specification
+* [Universal Agent Runtime Specification (UARS)](/docs/10-SPEC/UARS): Safe mutation contracts and operational pipeline stages.
+* [Workspace Intelligence Report Specification (WIR)](/docs/10-SPEC/WIR): Canonical schema fields and confidence scales.

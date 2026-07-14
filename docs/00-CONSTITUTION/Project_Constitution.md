@@ -1,294 +1,94 @@
-# **PROJECT CONSTITUTION**
+---
+id: owis-constitution
+title: Project Constitution
+version: 0.1
+status: freeze-candidate
+category: Constitution
+last_updated: 2026-07-15
+---
+
+# **PROJECT CONSTITUTION** <Badge type="warning" text="Architecture Freeze Candidate" />
 
 ## **Blueprint & Whitepaper**
 
 ### **Open Workspace Intelligence Specification (OWIS)**
 
-**Status:** Architecture Freeze Candidate  
-**Version:** 0.1 Draft Canonical  
-**Audience:** AI Software Engineers, AI IDE Developers, OSS Maintainers, Researchers
+---
+
+# Overview
+
+Open Workspace Intelligence Specification (OWIS) is an open interoperability standard that normalizes software workspace context, enabling consistent and deterministic project understanding for both humans and AI IDE Agents.
 
 ---
 
-# **1. Vision**
+# Purpose
 
-To build an **open standard** that enables a software workspace to be understood consistently by both humans and AI Agents.
-
-This standard does not aim to replace AI IDEs, LLMs, frameworks, or programming languages. Instead, it serves as an interoperability layer that normalizes the entire project context into a knowledge model usable across different vendors.
+To build an **open standard** that enables a software workspace to be understood consistently by both humans and AI Agents. This standard does not aim to replace AI IDEs, LLMs, frameworks, or programming languages. Instead, it serves as an interoperability layer that normalizes the entire project context into a knowledge model usable across different vendors.
 
 ---
 
-# **2. Mission**
+# Scope
 
-To define an open specification that:
-* describes how AI understands a workspace;
-* produces a canonical representation of a project;
-* reduces context loss, architecture drift, and AI slop;
-* enables interoperability between AI IDE Agents;
-* serves as a foundation for tooling, validation, and governance.
-
----
-
-# **3. Problem Statement**
-
-The current AI Software Engineering ecosystem is characterized by:
-* each AI Agent building its own project model;
-* the lack of a universal standard for workspace representation;
-* fragmented documentation without a canonical structure;
-* architectural decisions easily lost during long sessions;
-* AI frequently generating implementations inconsistent with the Source of Truth;
-* the absence of standard indicators for execution readiness and AI confidence levels.
-
-This fragmentation leads to:
-* context collapse;
-* architecture drift;
-* duplicate implementations;
-* inconsistent terminology;
-* technical debt;
-* low determinism across agents.
+Included:
+* Workspace discovery.
+* Knowledge normalization.
+* Source of Truth hierarchy.
+* Dependency intelligence.
+* Architecture intelligence.
+* Implementation boundary.
+* Execution readiness.
+* Confidence model.
 
 ---
 
-# **4. Core Thesis**
+# Non Goals
 
-The future of AI Software Engineering is defined not by code generation capability, but by the ability to understand projects deterministically.
-
-Value shifts from **Code Generation** to **Workspace Intelligence**.
-
----
-
-# **5. Positioning**
-
-OWIS is NOT:
-* A Prompt Library  
-* An AI IDE  
-* A Coding Assistant  
-* An Agent Framework  
-* An LLM  
-* A SaaS  
-
-OWIS IS:
-* An Open Workspace Intelligence Standard.
+Excluded:
+* Code generation.
+* Deployment pipelines.
+* Model inference.
+* Agent runtime implementation.
+* IDE applications.
 
 ---
 
-# **6. Value Proposition**
+# Architecture
 
-This standard provides a layer that sits between the software workspace and the AI Agent.
+OWIS acts as an abstraction layer between the codebase and the executing AI.
 
 ```
 Software Workspace
         │
         ▼
-Workspace Intelligence Layer
+Workspace Intelligence Layer (OWIS)
         │
         ▼
 Any AI IDE Agent
-        │
-        ▼
-Implementation
 ```
 
 ---
 
-# **7. Scope**
-
-Included:
-* workspace discovery;
-* knowledge normalization;
-* Source of Truth hierarchy;
-* dependency intelligence;
-* architecture intelligence;
-* implementation boundary;
-* execution readiness;
-* confidence model.
-
-Excluded:
-* code generation;
-* deployment;
-* model inference;
-* agent runtime implementation;
-* IDE.
-
----
-
-# **8. Canonical Components**
+# Components
 
 ### **Universal Agent Runtime Specification (UARS)**
 The operational contract governing AI behavior during project understanding and modification.
-* *Question answered:* "How does the AI work?"
 
 ### **Workspace Intelligence Report (WIR)**
-The artifact produced from workspace understanding.
-* *Question answered:* "What should the AI output after understanding the project?"
+The data structure representing the agent's validated workspace understanding.
 
 Together, they form the **Workspace Intelligence Layer**.
 
 ---
 
-# **9. Design Principles**
+# Interfaces
 
-* Vendor Agnostic
-* Open Specification
-* Deterministic
-* Human Readable
-* Machine Readable
-* Documentation First
-* Context Before Execution
-* Verification Before Mutation
-* Minimal Assumption
-* Architecture Preservation
-* Progressive Enhancement
+OWIS defines machine-readable schemas (JSON/YAML Schema) as the main interface between the repository context and AI agents. Runtimes consume documents matching these interfaces.
 
 ---
 
-# **10. Compatibility**
+# Constraints
 
-The standard is designed to consume existing artifacts, including but not limited to:
-* README
-* Architecture Documents
-* ADR
-* OpenAPI
-* AsyncAPI
-* ERD
-* PRD
-* AGENTS.md
-* DESIGN.md
-* SKILL.md
-* CLAUDE.md
-* Repository Rules
-* CI/CD Configuration
-
-This standard does not replace these artifacts.
-
----
-
-# **11. Ecosystem Position**
-
-```
-Repository
-    ↓
-Documentation
-    ↓
-Existing Standards
-    ↓
-Workspace Intelligence Layer (OWIS)
-    ↓
-AI IDE Agent
-    ↓
-Implementation
-```
-
-The Workspace Intelligence Layer acts as a normalization layer that unifies various artifacts into a single, consistent project model.
-
----
-
-# **12. Strategic Differentiation**
-
-* **Current Industry Focus:** Prompt Engineering, Context Engineering, Memory, Agent Frameworks, Code Generation.
-* **OWIS Focus:** Workspace Intelligence Engineering.
-
----
-
-# **13. Initial Deliverables**
-
-### **Phase 1: Open Specification**
-* UARS
-* WIR
-
-### **Phase 2: Schemas**
-* JSON Schema
-* YAML Schema
-
-### **Phase 3: Reference Examples**
-* Multi-language
-* Multi-framework
-* Multi-agent
-
-### **Phase 4: Reference Tooling**
-* Validator
-* Generator
-* Inspector
-
-### **Phase 5: SDK & Integrations**
-* TypeScript
-* Python
-* Go
-
----
-
-# **14. Business Model (Open Core)**
-
-### **Open Core (Always Free & Open)**
-* Specification
-* Schemas
-* Examples
-* Reference Documentation
-
-### **Commercial Layer**
-* Advanced Validator
-* Workspace Analyzer
-* Architecture Intelligence
-* Enterprise Governance
-* Hosted Services
-* Professional Support
-* Training & Certification
-
----
-
-# **15. Go-to-Market**
-
-Development Order:
-1. Open Specification
-2. Community Adoption
-3. Reference Implementation
-4. Tooling
-5. Ecosystem Integration
-6. Commercial Layer
-
-Initial target is adoption, not revenue.
-
----
-
-# **16. Target Audience**
-
-### **Primary**
-* AI IDE Developers
-* OSS Maintainers
-* AI Software Engineers
-* Framework Authors
-* Technical Architects
-
-### **Secondary**
-* Engineering Teams
-* Educators
-* Students
-* Researchers
-
----
-
-# **17. Success Metrics**
-
-Early success is measured by:
-* specification adoption;
-* integration across different AI Agents;
-* number of reference implementations;
-* community contributions;
-* interoperability with other standards.
-
-It is not measured by SaaS users or early revenue.
-
----
-
-# **18. Long-Term Vision**
-
-To become the open standard enabling every software workspace to have a canonical representation understood consistently by humans, AI IDE Agents, and automated tooling—completely independent of specific vendors, models, or development environments.
-
----
-
-# **19. Architecture Freeze**
-
-This constitution locks the project direction on the following principles:
+OWIS locks the project direction on the following principles:
 * Open Specification First.
 * Vendor Agnostic.
 * Workspace-Centric.
@@ -299,29 +99,8 @@ This constitution locks the project direction on the following principles:
 * Community Before Commercialization.
 * Standards Before Products.
 
-Fundamental changes to the vision, positioning, or conceptual architecture are only allowed through major specification revisions.
+---
 
-```
-Project Constitution
-        │
-        ▼
-Document Architecture Specification (DAS)
-        │
-        ▼
-Core Architecture Specification (CAS)
-        │
-        ├──────────────┐
-        ▼              ▼
-Reference        Core Specifications
-Architecture     (UARS, WIR, Lifecycle, Terminology)
-        │              │
-        └──────┬───────┘
-               ▼
-             Schema
-               ▼
-           References
-               ▼
-           Ecosystem
-               ▼
-            Tooling
-```
+# Future Extensions
+
+Future phases will introduce formal JSON/YAML schemas, SDKs, validating CLIs, and certification suites to verify AI agent compliance with UARS.

@@ -1,297 +1,83 @@
-# **WORKSPACE INTELLIGENCE REPORT SPECIFICATION (WIR)**
+---
+id: owis-wir
+title: Workspace Intelligence Report Specification
+version: 1.0.0-draft
+status: canonical
+category: Specification
+last_updated: 2026-07-15
+---
 
-**Status:** Canonical  
-**Version:** 1.0.0-draft  
-**Layer:** Core Specification  
-**Audience:** AI IDE Agents, Runtime Implementers, Specification Authors, OSS Maintainers
+# **WORKSPACE INTELLIGENCE REPORT SPECIFICATION (WIR)** <Badge type="tip" text="Canonical" />
 
 ---
 
-# **1. Objective**
+# Overview
 
 The Workspace Intelligence Report (WIR) defines the canonical project intelligence model that an AI IDE Agent MUST generate after completing workspace ingestion and before executing any implementation tasks.
 
-WIR is a machine-oriented artifact. It is designed to represent the agent's validated understanding of the current workspace deterministically, without narrative padding, explanations, or conversational filler.
+---
+
+# Purpose
+
+WIR represents the agent's validated understanding of the current workspace. It serves as a machine-readable blueprint mapping the codebase ontology, constraints, and dependencies cleanly.
 
 ---
 
-# **2. Generation Conditions**
+# Scope
 
-Generate a WIR only after completing:
-* Workspace recursive discovery.
-* Ingestion and parsing.
-* Source-of-Truth hierarchy mapping.
-* Knowledge normalization.
-* Entity and workflow correlation.
-* Dependency mapping.
-* Conflict and gap auditing.
-
-If any blocking conflicts exist, set `execution_readiness: BLOCKED` and halt execution.
+Included:
+* Structured YAML/JSON schemas representing scanned codebases.
+* Definitions for knowledge, technology stacks, API contracts, and domain models.
+* Audit reports (conflicts, gaps, and missing details).
+* Confidence scales and execution readiness indicators.
 
 ---
 
-# **3. Output Format**
+# Non Goals
 
-The WIR must be generated as raw, structured YAML or JSON following the canonical schema.
-* No markdown explanations.
-* No conversational text or summaries.
-* No conversational responses.
+Excluded:
+* Formatted markdown summaries for user reading.
+* Interactive chat records.
+* Specific code generation files or patches.
 
 ---
 
-# **4. Canonical Schema**
+# Architecture
 
-```yaml
-workspace:
-  root: String
-  scanned_files: Integer
-  scanned_directories: Integer
-  ignored_paths: [String]
-  supported_formats: [String]
-  generated_at: String (ISO 8601)
+WIR serves as the canonical contract between ingestion engines and execution engines in the reference pipeline:
 
-project:
-  name: String
-  description: String
-  version: String
-  maturity: String
-  repository_type: String
-  domain: String
-  objectives: [String]
-  stakeholders: [String]
-
-source_of_truth:
-  primary: [String]
-  secondary: [String]
-  reference: [String]
-  temporary: [String]
-
-knowledge:
-  glossary: Map<String, String>
-  terminology: Map<String, String>
-  concepts: [String]
-  business_rules: [String]
-  assumptions: [String]
-
-architecture:
-  style: String
-  patterns: [String]
-  bounded_contexts: [String]
-  modules: [ModuleObject]
-  services: [String]
-  packages: [String]
-  layers: [String]
-  workflows: [WorkflowObject]
-
-technology:
-  languages: [String]
-  frameworks: [String]
-  runtimes: [String]
-  libraries: [String]
-  package_managers: [String]
-  databases: [String]
-  storage: [String]
-  messaging: [String]
-  cache: [String]
-  deployment: [String]
-  infrastructure: [String]
-
-contracts:
-  api: [ContractObject]
-  schema: [ContractObject]
-  interfaces: [ContractObject]
-  events: [ContractObject]
-  public: [ContractObject]
-  internal: [ContractObject]
-
-domain:
-  entities: [String]
-  aggregates: [String]
-  value_objects: [String]
-  repositories: [String]
-  services: [String]
-  policies: [String]
-
-dependencies:
-  internal: [DependencyObject]
-  external: [DependencyObject]
-  module_graph: [DependencyObject]
-  integration_points: [DependencyObject]
-
-security:
-  authentication: String
-  authorization: String
-  secrets: [String]
-  encryption: [String]
-  compliance: [String]
-
-constraints:
-  architecture: [String]
-  technical: [String]
-  business: [String]
-  infrastructure: [String]
-  performance: [String]
-  security: [String]
-
-quality:
-  coding_standard: String
-  testing_strategy: String
-  documentation_standard: String
-  observability: String
-
-implementation:
-  active_scope: [String]
-  excluded_scope: [String]
-  completed_features: [String]
-  pending_features: [String]
-  technical_debt: [String]
-
-conflicts:
-  blocking: [ConflictObject]
-  non_blocking: [ConflictObject]
-  duplicate_definitions: [ConflictObject]
-  inconsistent_terms: [ConflictObject]
-  unresolved: [ConflictObject]
-
-knowledge_gaps:
-  missing_documents: [KnowledgeGapObject]
-  missing_contracts: [KnowledgeGapObject]
-  missing_requirements: [KnowledgeGapObject]
-  unresolved_decisions: [KnowledgeGapObject]
-
-confidence:
-  workspace: Float (0.0 to 1.0)
-  architecture: Float (0.0 to 1.0)
-  contracts: Float (0.0 to 1.0)
-  implementation: Float (0.0 to 1.0)
-  documentation: Float (0.0 to 1.0)
-  overall: Float (0.0 to 1.0)
-
-execution:
-  readiness: String (READY | PARTIAL | BLOCKED)
-  blockers: [String]
-  recommended_scope: [String]
-  validation_required: [String]
-  next_action: String
+```
+[Ingestion Engine] → [WIR Output (YAML/JSON)] → [Execution Engine]
 ```
 
 ---
 
-# **5. Confidence Scale**
+# Components
 
-| Value | Definition |
-| ----- | ---------- |
-| **1.00** | Fully verified by canonical artifacts |
-| **0.90** | Verified by multiple primary sources |
-| **0.75** | Supported by strong documentation |
-| **0.50** | Supported by partial evidence or code inference |
-| **0.25** | Weak evidence; relies on speculative assumptions |
-| **0.00** | Unknown; no files found |
+### **Canonical Schema**
+The strict data format detailing workspace, project, security, constraints, and quality metrics.
 
----
+### **Confidence Scale**
+The rating metric indicating the completeness of the workspace analysis.
 
-# **6. Execution Readiness**
-
-* **READY**: Active scope is fully mapped, there are zero blocking conflicts, and sufficient context is loaded.
-* **PARTIAL**: Workspace is understood but some non-blocking uncertainties exist.
-* **BLOCKED**: One or more blocking conflicts or gaps exist. Implementation must not proceed.
+### **Execution Readiness**
+The status flagging whether it is safe for the agent to proceed.
 
 ---
 
-# **7. Blocking Conditions**
+# Interfaces
 
-Set `execution: readiness: BLOCKED` when any of the following exist:
-* Conflicting or ambiguous Source-of-Truth.
-* Contradictory architectural specifications.
-* Incompatible interface or schema contracts.
-* Ambiguous public API signatures.
-* Missing critical dependencies.
-* Unresolved database migrations or models.
-* Unresolved security models.
+WIR is generated as a structured file consumed directly by AI execution adapters.
 
 ---
 
-# **8. Normalization Rules**
+# Constraints
 
-All extracted data must be normalized to eliminate:
-* Duplicate terminology (consolidate and map to a single glossary key).
-* Overlapping contracts (merge definitions).
-* Duplicate entities or workflows (link to a single canonical object).
+* **No Narrative**: The report must contain zero conversational filler, opinions, or greetings.
+* **Traceable**: Every entry must be traceably linked to its Source of Truth artifact.
 
 ---
 
-# **9. Reference Objects**
+# Future Extensions
 
-### **Conflict Object**
-```yaml
-id: String
-severity: String (BLOCKING | WARN | INFO)
-category: String
-sources: [String]
-description: String
-impact: String
-required_resolution: String
-status: String (OPEN | RESOLVED)
-```
-
-### **Knowledge Gap Object**
-```yaml
-category: String
-description: String
-affected_scope: [String]
-required_information: String
-blocking: Boolean
-```
-
-### **Dependency Object**
-```yaml
-source: String
-target: String
-relationship: String
-criticality: String (HIGH | MEDIUM | LOW)
-```
-
-### **Module Object**
-```yaml
-name: String
-purpose: String
-owner: String
-dependencies: [String]
-contracts: [String]
-status: String
-```
-
-### **Contract Object**
-```yaml
-name: String
-type: String (API | SCHEMA | INTERFACE)
-version: String
-owner: String
-visibility: String (PUBLIC | INTERNAL)
-status: String
-```
-
-### **Workflow Object**
-```yaml
-name: String
-trigger: String
-steps: [String]
-outputs: [String]
-dependencies: [String]
-```
-
----
-
-# **10. Invalid Output**
-
-The following must NEVER appear in a WIR:
-* Interactive dialog, greetings, or conversational remarks.
-* Subjective assessments, opinions, or advice.
-* Proposed code patches or git diffs.
-* Speculative definitions not found in workspace documentation.
-
----
-
-# **11. Success Criteria**
-
-A valid WIR must fully represent the workspace, detail the source-of-truth, list all dependencies, capture constraints, and declare execution readiness. No additional interpretation should be needed to start the task.
+Future revisions will add schema blocks to model asynchronous messaging systems and cloud container topologies.

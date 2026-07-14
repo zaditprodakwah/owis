@@ -35,16 +35,18 @@ Today, AI software engineering is limited not by code generation capability, but
 This repository is organized according to the **Document Architecture Specification (DAS)**:
 
 ### 00-CONSTITUTION
-* [Project Constitution](docs/00-CONSTITUTION/Project_Constitution.md): The core vision, mission, and guiding design principles of the project.
+* [Project Constitution](docs/00-CONSTITUTION/Project_Constitution.md): Core vision, mission, and guiding principles.
+* [Documentation Governance](docs/00-CONSTITUTION/DOCUMENTATION_GOVERNANCE.md): Rules governing specifications as a controlled system.
+* [Architecture Index](docs/00-CONSTITUTION/ARCHITECTURE_INDEX.md): Machine-readable directory map of the specification layers.
 
 ### 01-FOUNDATION
-* [Document Architecture Specification (DAS)](docs/01-FOUNDATION/DAS.md): Structure, ownership, and read hierarchy of all project documents.
-* [Core Architecture Specification (CAS)](docs/01-FOUNDATION/CAS.md): Official conceptual model and domain ontology of workspace intelligence.
-* [Reference Architecture Specification (RAS)](docs/01-FOUNDATION/RAS.md): Component mapping, pipeline details, and communication flow.
+* [Document Architecture Specification (DAS)](docs/01-FOUNDATION/DAS.md): Structure, layer definitions, and read hierarchy.
+* [Core Architecture Specification (CAS)](docs/01-FOUNDATION/CAS.md): Conceptual model and workspace ontology.
+* [Reference Architecture Specification (RAS)](docs/01-FOUNDATION/RAS.md): Component mappings and runtime pipelines.
 
 ### 10-SPEC (Core Specifications)
-* [Universal Agent Runtime Specification (UARS)](docs/10-SPEC/UARS.md): Master runtime contract governing how AI agents discover, plan, and execute within a workspace safely.
-* [Workspace Intelligence Report Specification (WIR)](docs/10-SPEC/WIR.md): Canonical data schema representing the AI agent's synthesized workspace understanding.
+* [Universal Agent Runtime Specification (UARS)](docs/10-SPEC/UARS.md): Operating contract governing agent mutations.
+* [Workspace Intelligence Report Specification (WIR)](docs/10-SPEC/WIR.md): Canonical output data schemas.
 
 ---
 

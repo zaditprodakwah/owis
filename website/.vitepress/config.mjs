@@ -6,6 +6,7 @@ export default defineConfig({
   title: "OWIS",
   description: "Open Workspace Intelligence Specification",
   cleanUrls: true,
+  lastUpdated: true,
   head: [
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'OWIS' }],
@@ -30,6 +31,17 @@ export default defineConfig({
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    editLink: {
+      pattern: 'https://github.com/zaditprodakwah/owis/edit/main/:path',
+      text: 'Edit this page on GitHub'
+    },
+    lastUpdated: {
+      text: 'Last Updated',
+      formatOptions: {
+        dateStyle: 'medium',
+        timeStyle: 'medium'
+      }
+    },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Getting Started', link: '/getting_started' },
@@ -53,7 +65,9 @@ export default defineConfig({
       {
         text: 'Constitution',
         items: [
-          { text: 'Project Constitution', link: '/docs/00-CONSTITUTION/Project_Constitution' }
+          { text: 'Project Constitution', link: '/docs/00-CONSTITUTION/Project_Constitution' },
+          { text: 'Documentation Governance', link: '/docs/00-CONSTITUTION/DOCUMENTATION_GOVERNANCE' },
+          { text: 'Architecture Index', link: '/docs/00-CONSTITUTION/ARCHITECTURE_INDEX' }
         ]
       },
       {
