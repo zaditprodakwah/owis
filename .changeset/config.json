@@ -1,0 +1,20 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
+  "changelog": ["@changesets/changelog-github", { "repo": "zaditprodakwah/owis" }],
+  "commit": false,
+  "linked": [
+    [
+      "@prodakwah/owis",
+      "@prodakwah/owis-runtime",
+      "@prodakwah/owis-sdk",
+      "@prodakwah/owis-cli",
+      "@prodakwah/owis-lint",
+      "@prodakwah/owis-graph",
+      "@prodakwah/owis-context"
+    ]
+  ],
+  "access": "public",
+  "baseBranch": "main",
+  "ignore": [],
+  "updateInternalDependencies": "patch"
+}

@@ -1,0 +1,42 @@
+name: Verify Release Readiness
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'release/*'
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: https://registry.npmjs.org/
+          scope: '@prodakwah'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run validation script
+        run: npm run validate-release
+
+      - name: Pack workspaces
+        run: npm pack --workspaces
+
+      - name: Upload package artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: owis-packages
+          path: "*.tgz"
