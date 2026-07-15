@@ -29,19 +29,19 @@ Entry point: `src/index.js`
 
 Scans a local workspace directory and produces a complete Workspace Intelligence Report (WIR) object.
 
-### Signature
+### parseWorkspace(workspacePath) Signature
 
 ```ts
 parseWorkspace(workspacePath: string): WIR
 ```
 
-### Parameters
+### parseWorkspace(workspacePath) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `workspacePath` | `string` | Yes | Absolute or relative path to the workspace root directory. Resolved to absolute internally. |
 
-### Return Value
+### parseWorkspace(workspacePath) Return Value
 
 Returns a `WIR` object conforming to `docs/20-SCHEMA/wir.schema.json`.
 
@@ -120,7 +120,7 @@ interface WIR {
 }
 ```
 
-### Errors
+### parseWorkspace(workspacePath) Errors
 
 | Condition | Error Message |
 |-----------|---------------|
@@ -132,7 +132,7 @@ interface WIR {
 
 None. `parseWorkspace` is a pure read-only operation. It does not write files to disk.
 
-### Example
+### parseWorkspace(workspacePath) Example
 
 ```js
 const { parseWorkspace } = require('owis-runtime');
@@ -148,20 +148,20 @@ console.log(wir.workspace.scanned_files); // e.g. 42
 
 Validates a data payload against a named OWIS JSON schema.
 
-### Signature
+### validate(schemaName, data) Signature
 
 ```ts
 validate(schemaName: string, data: object): ValidationResult
 ```
 
-### Parameters
+### validate(schemaName, data) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `schemaName` | `string` | Yes | One of: `"wir"`, `"workspace"`, `"uars"`, `"artifact"`, `"dependency"`, `"knowledge"` |
 | `data` | `object` | Yes | The JSON payload to validate. |
 
-### Return Value
+### validate(schemaName, data) Return Value
 
 ```ts
 interface ValidationResult {
@@ -175,14 +175,14 @@ interface ValidationResult {
 }
 ```
 
-### Errors
+### validate(schemaName, data) Errors
 
 | Condition | Behavior |
 |-----------|----------|
 | Unknown `schemaName` | Returns `{ valid: false, errors: [{ message: "Unknown schema: <name>" }] }` |
 | `data` is not an object | Returns `{ valid: false, errors: [{ message: "Input is not a valid object" }] }` |
 
-### Example
+### validate(schemaName, data) Example
 
 ```js
 const { validate } = require('owis-runtime/src/validator');

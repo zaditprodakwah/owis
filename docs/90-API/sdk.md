@@ -29,27 +29,27 @@ Type definitions: `src/index.d.ts`
 
 Parses a workspace and returns its WIR.
 
-### Signature
+### parse(workspacePath) Signature
 
 ```ts
 parse(workspacePath: string): WIR
 ```
 
-### Parameters
+### parse(workspacePath) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `workspacePath` | `string` | Yes | Absolute or relative path to workspace root. |
 
-### Return Value
+### parse(workspacePath) Return Value
 
 A `WIR` object. See [runtime.md](./runtime.md) for the full type definition.
 
-### Errors
+### parse(workspacePath) Errors
 
 Propagates all errors from `parseWorkspace`. See [runtime.md](./runtime.md#errors).
 
-### Example
+### parse(workspacePath) Example
 
 ```js
 const { parse } = require('@prodakwah/owis-sdk');
@@ -63,20 +63,20 @@ console.log(wir.project.name);
 
 Validates data against an OWIS JSON schema.
 
-### Signature
+### check(schemaName, data) Signature
 
 ```ts
 check(schemaName: string, data: object): ValidationResult
 ```
 
-### Parameters
+### check(schemaName, data) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `schemaName` | `string` | Yes | Schema name: `"wir"`, `"workspace"`, `"uars"`, `"artifact"`, `"dependency"`, `"knowledge"` |
 | `data` | `object` | Yes | Payload to validate. |
 
-### Return Value
+### check(schemaName, data) Return Value
 
 ```ts
 interface ValidationResult {
@@ -85,7 +85,7 @@ interface ValidationResult {
 }
 ```
 
-### Example
+### check(schemaName, data) Example
 
 ```js
 const { check } = require('@prodakwah/owis-sdk');
@@ -99,20 +99,20 @@ if (!result.valid) console.error(result.errors);
 
 Extracts a WIR Graph from a workspace directory and its WIR.
 
-### Signature
+### parseGraph(workspaceRoot, wir) Signature
 
 ```ts
 parseGraph(workspaceRoot: string, wir: WIR): Graph
 ```
 
-### Parameters
+### parseGraph(workspaceRoot, wir) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `workspaceRoot` | `string` | Yes | Absolute path to workspace directory. |
 | `wir` | `WIR` | Yes | A parsed WIR object. |
 
-### Return Value
+### parseGraph(workspaceRoot, wir) Return Value
 
 An internal `Graph` object. Pass to `serializeGraph` to get the JSON representation.
 
@@ -122,13 +122,13 @@ An internal `Graph` object. Pass to `serializeGraph` to get the JSON representat
 
 Analyzes a `Graph` object and returns statistics.
 
-### Signature
+### analyzeGraph(graph) Signature
 
 ```ts
 analyzeGraph(graph: Graph): GraphAnalysis
 ```
 
-### Return Value
+### analyzeGraph(graph) Return Value
 
 ```ts
 interface GraphAnalysis {
@@ -148,13 +148,13 @@ interface GraphAnalysis {
 
 Serializes a `Graph` to the canonical `wir.graph.json` JSON representation.
 
-### Signature
+### serializeGraph(graph) Signature
 
 ```ts
 serializeGraph(graph: Graph): SerializedGraph
 ```
 
-### Return Value
+### serializeGraph(graph) Return Value
 
 ```ts
 interface SerializedGraph {
@@ -197,7 +197,7 @@ See [lint.md](./lint.md) for the full lint API contract.
 
 Builds a raw context payload from one or more OWIS artifacts.
 
-### Signature
+### buildContext(payloads, sourcesMap) Signature
 
 ```ts
 buildContext(
@@ -211,14 +211,14 @@ buildContext(
 ): RawContext
 ```
 
-### Parameters
+### buildContext(payloads, sourcesMap) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `payloads` | `object` | Yes | Any combination of OWIS artifacts. At least one required. |
 | `sourcesMap` | `object` | Yes | Map of artifact type → filename (used for provenance tracking). |
 
-### Return Value
+### buildContext(payloads, sourcesMap) Return Value
 
 A `RawContext` object ready for sanitization. Do not serialize directly; pass through `sanitizeContext` first.
 
@@ -228,13 +228,13 @@ A `RawContext` object ready for sanitization. Do not serialize directly; pass th
 
 Sanitizes a raw context object, redacting secrets, filtering paths, detecting prompt injections, and enforcing budget limits.
 
-### Signature
+### sanitizeContext(context) Signature
 
 ```ts
 sanitizeContext(context: RawContext): SanitizeResult
 ```
 
-### Return Value
+### sanitizeContext(context) Return Value
 
 ```ts
 interface SanitizeResult {
@@ -265,13 +265,13 @@ The returned `context` has `_truncated: boolean` set to `true` if any budget lim
 
 Validates a sanitized context object against `context.schema.json`.
 
-### Signature
+### validateContext(context) Signature
 
 ```ts
 validateContext(context: SanitizedContext): ValidationResult
 ```
 
-### Return Value
+### validateContext(context) Return Value
 
 Same as `check()`: `{ valid: boolean, errors: AjvError[] | null }`
 
@@ -281,25 +281,25 @@ Same as `check()`: `{ valid: boolean, errors: AjvError[] | null }`
 
 Serializes a sanitized context to the requested output format.
 
-### Signature
+### serializeContext(context, format) Signature
 
 ```ts
 serializeContext(context: SanitizedContext, format: "json" | "markdown"): string
 ```
 
-### Parameters
+### serializeContext(context, format) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `context` | `SanitizedContext` | Yes | A validated, sanitized context object. |
 | `format` | `string` | Yes | `"json"` or `"markdown"` |
 
-### Return Value
+### serializeContext(context, format) Return Value
 
 - `"json"`: Deterministic JSON string with sorted keys, 2-space indent, LF endings.
 - `"markdown"`: Human-readable Markdown document.
 
-### Errors
+### serializeContext(context, format) Errors
 
 | Condition | Error |
 |-----------|-------|
@@ -311,19 +311,19 @@ serializeContext(context: SanitizedContext, format: "json" | "markdown"): string
 
 Loads a previously serialized `context.json` from disk.
 
-### Signature
+### loadContext(filepath) Signature
 
 ```ts
 loadContext(filepath: string): SanitizedContext
 ```
 
-### Parameters
+### loadContext(filepath) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `filepath` | `string` | Yes | Path to `context.json`. |
 
-### Errors
+### loadContext(filepath) Errors
 
 | Condition | Behavior |
 |-----------|----------|

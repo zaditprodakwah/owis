@@ -1,0 +1,20 @@
+# OWIS CODEOWNERS
+# This file defines the default reviewers for code in this repository.
+
+# Global owner fallback
+*       @zaditprodakwah
+
+# Documentation
+/docs/              @zaditprodakwah
+/website/           @zaditprodakwah
+
+# Core specifications
+/docs/20-SCHEMA/    @zaditprodakwah
+
+# Specific packages can be assigned to different teams in the future
+/runtime/           @zaditprodakwah
+/cli/               @zaditprodakwah
+/sdk/               @zaditprodakwah
+/lint/              @zaditprodakwah
+/graph/             @zaditprodakwah
+/context/           @zaditprodakwah

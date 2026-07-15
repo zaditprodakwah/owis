@@ -1,3 +1,12 @@
+---
+name: Pull Request Template
+about: Describe this issue template's purpose here.
+title: "[Template]"
+labels: documentation
+assignees: ''
+
+---
+
 ## Type of change
 
 - [ ] Bug fix

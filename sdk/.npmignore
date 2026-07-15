@@ -1,0 +1,5 @@
+tests/
+docs/
+.eslintrc.json
+jest.config.js
+tsconfig.json

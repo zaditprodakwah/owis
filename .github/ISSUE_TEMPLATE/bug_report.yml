@@ -1,0 +1,47 @@
+name: Bug Report
+description: Create a report to help us improve OWIS
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before reporting, please search the [issue tracker](https://github.com/zaditprodakwah/owis/issues) to ensure the bug hasn't already been reported. See [SECURITY.md](../SECURITY.md) if this is a security vulnerability, and [CONTRIBUTING.md](../CONTRIBUTING.md) for how to submit bug fixes.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction Steps
+      description: Please provide clear steps or code to reproduce the behavior.
+      placeholder: |
+        1. Run `owis scan` with configuration...
+        2. Graph analysis fails...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: OWIS Version
+      description: Which version of OWIS are you using? (e.g., v0.2.0-rc.1)
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS and Node version (e.g., macOS 14.5, Node 22.x)
+    validations:
+      required: true

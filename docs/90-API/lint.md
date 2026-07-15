@@ -28,7 +28,7 @@ Entry point: `index.js`
 
 Registers all built-in lint rules. Must be called before running `engine.lint()` unless you register rules manually via `registry`.
 
-### Signature
+### loadDefaultRules() Signature
 
 ```ts
 loadDefaultRules(): void
@@ -38,7 +38,7 @@ loadDefaultRules(): void
 
 Registers all rules from `rules/index.js` into the shared `registry`.
 
-### Example
+### loadDefaultRules() Example
 
 ```js
 const { loadDefaultRules, engine } = require('@prodakwah/owis-lint');
@@ -56,20 +56,20 @@ The lint engine singleton.
 
 Runs all registered rules against the provided WIR.
 
-#### Signature
+#### engine.lint(context, wir) Signature
 
 ```ts
 engine.lint(context: object, wir: WIR): LintResult
 ```
 
-#### Parameters
+#### engine.lint(context, wir) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `context` | `object` | Yes | Execution context (currently unused; pass `{}`). Reserved for future rule configuration. |
 | `wir` | `WIR` | Yes | A parsed WIR object. |
 
-#### Return Value
+#### engine.lint(context, wir) Return Value
 
 ```ts
 interface LintResult {
@@ -112,7 +112,7 @@ The rule registry singleton.
 
 Registers a custom lint rule.
 
-#### Signature
+#### registry.register(rule) Signature
 
 ```ts
 registry.register(rule: LintRule): void
@@ -137,13 +137,13 @@ interface LintRule {
 
 Formats a `LintResult` as a human-readable CLI string.
 
-#### Signature
+#### formatter.formatCLI(result, workspacePath) Signature
 
 ```ts
 formatter.formatCLI(result: LintResult, workspacePath: string): string
 ```
 
-#### Return Value
+#### formatter.formatCLI(result, workspacePath) Return Value
 
 Multi-line string with ANSI-compatible structure:
 - Header with workspace path
