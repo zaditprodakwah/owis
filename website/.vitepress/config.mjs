@@ -16,7 +16,7 @@ export default defineConfig({
     ['meta', { property: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { property: 'twitter:title', content: 'OWIS' }],
     ['meta', { property: 'twitter:description', content: 'Open Workspace Intelligence Specification' }],
-    ['meta', { property: 'twitter:image', content: 'https://zaditprodakwah.github.io/owis/repository-open-graph-template.png' }],
+    ['meta', { name: 'google-site-verification', content: 'xFk9adW7bZ3Q_xYfgc2ecCAKXfgRkF_Awri1xkRaCbs' }],
     ['meta', { name: 'keywords', content: 'owis, workspace-intelligence, context-layer, wir, code-understanding, ai-agents, open-interoperability-standard' }]
   ],
   srcDir: '..',
