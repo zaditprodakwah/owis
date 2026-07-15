@@ -1,5 +1,7 @@
 const { parseWorkspace } = require('../../runtime/src/parser');
 const { validate } = require('../../runtime/src/validator');
+const { parseGraph, analyzeGraph, serializeGraph } = require('../../graph');
+const lint = require('../../lint');
 
 /**
  * Parses a target workspace and builds a synthesized Workspace Intelligence Report.
@@ -22,5 +24,8 @@ function check(schemaName, data) {
 
 module.exports = {
   parse,
-  check
+  check,
+  parseGraph,
+  analyzeGraph,
+  serializeGraph
 };

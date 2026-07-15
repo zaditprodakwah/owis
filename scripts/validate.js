@@ -38,8 +38,13 @@ try {
   runCommand('npm test', path.join(rootDir, 'lint'));
   console.log('✓ Lint passed');
 
-  // 6. Build documentation portal
-  console.log('\n[6/6] Building documentation portal...');
+  // 6. Run Graph tests
+  console.log('\n[6/7] Running Graph engine tests...');
+  runCommand('npm test', path.join(rootDir, 'graph'));
+  console.log('✓ Graph passed');
+
+  // 7. Build documentation portal
+  console.log('\n[7/7] Building documentation portal...');
   runCommand('npx vitepress build website', rootDir);
   console.log('✓ Documentation built');
 

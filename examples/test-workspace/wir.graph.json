@@ -1,0 +1,85 @@
+{
+  "version": "0.2.0",
+  "nodes": [
+    {
+      "id": "workspace:test-workspace",
+      "type": "workspace",
+      "label": "test-workspace-example",
+      "metadata": {
+        "version": "0.1.0"
+      }
+    },
+    {
+      "id": "file:README.md",
+      "type": "file",
+      "label": "README.md",
+      "metadata": {
+        "path": "README.md"
+      }
+    },
+    {
+      "id": "dir:artifacts",
+      "type": "directory",
+      "label": "artifacts",
+      "metadata": {
+        "path": "artifacts"
+      }
+    },
+    {
+      "id": "file:artifacts/sample.md",
+      "type": "file",
+      "label": "sample.md",
+      "metadata": {
+        "path": "artifacts/sample.md"
+      }
+    },
+    {
+      "id": "file:wir.json",
+      "type": "file",
+      "label": "wir.json",
+      "metadata": {
+        "path": "wir.json"
+      }
+    },
+    {
+      "id": "file:workspace.json",
+      "type": "file",
+      "label": "workspace.json",
+      "metadata": {
+        "path": "workspace.json"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "workspace:test-workspace",
+      "to": "file:README.md",
+      "type": "contains",
+      "metadata": {}
+    },
+    {
+      "from": "workspace:test-workspace",
+      "to": "dir:artifacts",
+      "type": "contains",
+      "metadata": {}
+    },
+    {
+      "from": "dir:artifacts",
+      "to": "file:artifacts/sample.md",
+      "type": "contains",
+      "metadata": {}
+    },
+    {
+      "from": "workspace:test-workspace",
+      "to": "file:wir.json",
+      "type": "contains",
+      "metadata": {}
+    },
+    {
+      "from": "workspace:test-workspace",
+      "to": "file:workspace.json",
+      "type": "contains",
+      "metadata": {}
+    }
+  ]
+}

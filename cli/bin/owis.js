@@ -101,13 +101,29 @@ if (command === 'lint') {
     }
     
     console.log('\nGenerated:');
-    console.log('✓ WIR\n');
+    console.log('✓ WIR');
 
     const wirOutputPath = outputPathOverride 
       ? path.resolve(outputPathOverride) 
       : path.join(path.resolve(targetWorkspace), 'wir.json');
 
     fs.writeFileSync(wirOutputPath, JSON.stringify(wir, null, 2), 'utf8');
+
+    // Graph Extraction (Phase 14.2)
+    const { parseGraph, analyzeGraph, serializeGraph } = require('../../graph');
+    const graph = parseGraph(path.resolve(targetWorkspace), wir);
+    const serializedGraph = serializeGraph(graph);
+    const analysis = analyzeGraph(graph);
+    
+    const graphOutputPath = outputPathOverride
+      ? path.resolve(outputPathOverride).replace(/\.json$/, '.graph.json')
+      : path.join(path.resolve(targetWorkspace), 'wir.graph.json');
+      
+    fs.writeFileSync(graphOutputPath, JSON.stringify(serializedGraph, null, 2), 'utf8');
+    
+    console.log('✓ WIR Graph');
+    console.log(`  - Nodes: ${analysis.counts.nodes}`);
+    console.log(`  - Edges: ${analysis.counts.edges}\n`);
 
     console.log('Status:\nCOMPLIANT\n');
 

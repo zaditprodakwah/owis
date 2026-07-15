@@ -2,6 +2,18 @@
 
 All notable changes to the OWIS specification will be documented in this file.
 
+## v0.2.0-alpha.2
+
+**Status**: Implemented
+**Focus**: RFC-001 WIR Graph Engine
+
+Added:
+- Standalone `@prodakwah/owis-graph` package for generating workspace intelligence graphs
+- CLI integration to output `wir.graph.json` during workspace scan
+- Graph extractor with mandatory security limits (max nodes, max edges, max depth, etc.)
+- Graph analyzer for connected components, circular dependencies, and orphan nodes
+- SDK methods `parseGraph()`, `analyzeGraph()`, `serializeGraph()`
+
 ## v0.2.0-alpha.1
 
 **Status**: Implemented

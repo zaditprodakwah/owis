@@ -15,8 +15,8 @@ This document outlines the strategic milestones and phases of the Open Workspace
 - **Status:** 🚧 In Progress
 - **Completed:**
   - RFC-003 Schema Linter (`owis lint`)
-- **Upcoming:**
   - RFC-001 WIR Graph Model
+- **Upcoming:**
   - RFC-002 LLM Native Support
 
 ---

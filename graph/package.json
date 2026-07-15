@@ -1,0 +1,13 @@
+{
+  "name": "@prodakwah/owis-graph",
+  "version": "0.1.0",
+  "description": "OWIS WIR Graph Engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "license": "MIT",
+  "repository": "https://github.com/zaditprodakwah/owis"
+}
