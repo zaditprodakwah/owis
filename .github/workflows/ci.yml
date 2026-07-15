@@ -57,13 +57,13 @@ jobs:
       working-directory: context
     
     - name: Compatibility Tests
-      run: node --test compatibility/*.test.js
+      run: node --test compatibility/v0.1-cli.test.js compatibility/v0.1-runtime.test.js compatibility/v0.1-sdk.test.js compatibility/v0.2-context.test.js compatibility/v0.2-graph.test.js
     
     - name: Snapshot Tests
-      run: node --test tests/snapshots/*.test.js
+      run: node --test tests/snapshots/snapshot.test.js
     
     - name: Security Tests
-      run: node --test security/fuzz/tests/*.test.js
+      run: node --test security/fuzz/tests/security.test.js
     
     - name: Documentation Validation
       run: node scripts/validate-docs.js

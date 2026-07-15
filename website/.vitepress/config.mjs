@@ -8,17 +8,59 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
   head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/owis/favicon.svg' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'OWIS' }],
     ['meta', { property: 'og:description', content: 'Open Workspace Intelligence Specification' }],
+    ['meta', { property: 'og:image', content: 'https://zaditprodakwah.github.io/owis/repository-open-graph-template.png' }],
     ['meta', { property: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { property: 'twitter:title', content: 'OWIS' }],
-    ['meta', { property: 'twitter:description', content: 'Open Workspace Intelligence Specification' }]
+    ['meta', { property: 'twitter:description', content: 'Open Workspace Intelligence Specification' }],
+    ['meta', { name: 'google-site-verification', content: 'xFk9adW7bZ3Q_xYfgc2ecCAKXfgRkF_Awri1xkRaCbs' }],
+    ['meta', { name: 'msvalidate.01', content: '015756E98C3F3893642C5EC255A85850' }],
+    ['meta', { name: 'keywords', content: 'owis, workspace-intelligence, context-layer, wir, code-understanding, ai-agents, open-interoperability-standard' }]
   ],
   srcDir: '..',
   srcExclude: ['**/node_modules/**', 'website/dist/**', 'website/cache/**'],
   sitemap: {
-    hostname: 'https://zaditprodakwah.github.io/owis/'
+    hostname: 'https://zaditprodakwah.github.io/owis/',
+    lastmodDateOnly: false
+  },
+  transformHead: (context) => {
+    const { pageData } = context;
+    const hostname = 'https://zaditprodakwah.github.io/owis';
+    const cleanPath = pageData.relativePath
+      .replace(/(^|\/)index\.md$/, '$1')
+      .replace(/\.md$/, '');
+    
+    // Memastikan penggabungan URL tidak menghasilkan double slash yang merusak tag canonical
+    const canonicalUrl = `${hostname}/${cleanPath}`.replace(/([^:]\/)\/+/g, '$1');
+
+    const head = [
+      ['link', { rel: 'canonical', href: canonicalUrl }]
+    ];
+
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": pageData.title || "OWIS Documentation",
+      "description": pageData.description || "Open Workspace Intelligence Specification reference.",
+      "url": canonicalUrl,
+      "dateModified": new Date(pageData.lastUpdated || Date.now()).toISOString(),
+      "author": {
+        "@type": "Organization",
+        "name": "zaditprodakwah",
+        "url": "https://github.com/zaditprodakwah"
+      }
+    };
+
+    head.push([
+      'script',
+      { type: 'application/ld+json' },
+      JSON.stringify(jsonLd)
+    ]);
+
+    return head;
   },
   rewrites: {
     'README.md': 'index.md',
@@ -30,6 +72,7 @@ export default defineConfig({
     'LICENSE.md': 'license.md'
   },
   themeConfig: {
+    logo: '/logo.svg',
     // https://vitepress.dev/reference/default-theme-config
     editLink: {
       pattern: 'https://github.com/zaditprodakwah/owis/edit/main/:path',
@@ -135,8 +178,8 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'OWIS Specification v0.1.0 | Documentation v0.1.0 | Released under the MIT License.',
-      copyright: 'Copyright © 2026-present OWIS Project Contributors'
+      message: 'OWIS Specification v0.2.0-rc.1 | Documentation v0.2.0-rc.1 | Released under the MIT License.',
+      copyright: 'Copyright © 2026-present OWIS Project Contributors & Zadit Prodakwah'
     },
 
     search: {

@@ -4,7 +4,7 @@
   "description": "OWIS Provider-Neutral LLM Context Layer — Build, Sanitize, and Serialize AI Context",
   "main": "index.js",
   "scripts": {
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/builder.test.js tests/limits.test.js tests/sanitizer.test.js tests/validator.test.js"
   },
   "exports": {
     ".": "./index.js"

@@ -4,7 +4,7 @@
   "description": "OWIS WIR Graph Engine — Workspace Topology Extraction and Analysis",
   "main": "index.js",
   "scripts": {
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/empty.test.js tests/circular.test.js tests/multistack.test.js tests/valid-graph.test.js"
   },
   "exports": {
     ".": "./index.js"
