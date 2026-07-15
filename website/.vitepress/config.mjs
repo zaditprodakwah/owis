@@ -22,6 +22,9 @@ export default defineConfig({
   ],
   srcDir: '..',
   srcExclude: ['**/node_modules/**', 'website/dist/**', 'website/cache/**'],
+  vite: {
+    publicDir: 'website/public'
+  },
   sitemap: {
     hostname: 'https://zaditprodakwah.github.io/owis/',
     lastmodDateOnly: false
