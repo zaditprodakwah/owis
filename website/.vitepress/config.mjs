@@ -62,6 +62,22 @@ export default defineConfig({
 
     return head;
   },
+  buildEnd: async ({ outDir }) => {
+    const { SitemapStream } = await import('sitemap');
+    const { createWriteStream } = await import('node:fs');
+    const { resolve } = await import('node:path');
+    const { createContentLoader } = await import('vitepress');
+    const pages = await createContentLoader('**/*.md').load();
+    const sitemap = new SitemapStream({ hostname: 'https://zaditprodakwah.github.io/owis/' });
+    const writeStream = createWriteStream(resolve(outDir, 'sitemap.xml'));
+    sitemap.pipe(writeStream);
+    pages.forEach(page => {
+      const url = page.url.replace(/index\.md$/,'').replace(/\.md$/,'');
+      sitemap.write(url);
+    });
+    sitemap.end();
+    await new Promise(r => writeStream.on('finish', r));
+  },
   rewrites: {
     'README.md': 'index.md',
     'GETTING_STARTED.md': 'getting_started.md',

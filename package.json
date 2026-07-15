@@ -26,6 +26,7 @@
     "docs:validate": "node scripts/validate-docs.js"
   },
   "devDependencies": {
+    "sitemap": "^9.0.1",
     "vitepress": "^1.6.4",
     "vue": "^3.5.39"
   },
