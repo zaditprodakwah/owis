@@ -1,0 +1,225 @@
+{
+  "edges": [
+    {
+      "from": "workspace:large",
+      "metadata": {},
+      "to": "file:README.md",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:large",
+      "metadata": {},
+      "to": "dir:backend",
+      "type": "contains"
+    },
+    {
+      "from": "dir:backend",
+      "metadata": {},
+      "to": "file:backend/server.js",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:large",
+      "metadata": {},
+      "to": "file:context.json",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:large",
+      "metadata": {},
+      "to": "file:context.md",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:large",
+      "metadata": {},
+      "to": "dir:docs",
+      "type": "contains"
+    },
+    {
+      "from": "dir:docs",
+      "metadata": {},
+      "to": "file:docs/ARCHITECTURE.md",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:large",
+      "metadata": {},
+      "to": "dir:frontend",
+      "type": "contains"
+    },
+    {
+      "from": "dir:frontend",
+      "metadata": {},
+      "to": "file:frontend/app.js",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:large",
+      "metadata": {},
+      "to": "file:package.json",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:large",
+      "metadata": {},
+      "to": "dir:shared",
+      "type": "contains"
+    },
+    {
+      "from": "dir:shared",
+      "metadata": {},
+      "to": "file:shared/utils.js",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:large",
+      "metadata": {},
+      "to": "file:wir.graph.json",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:large",
+      "metadata": {},
+      "to": "file:wir.json",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:large",
+      "metadata": {},
+      "to": "file:workspace.json",
+      "type": "contains"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "workspace:large",
+      "label": "large-fullstack-app",
+      "metadata": {
+        "version": "2.0.0"
+      },
+      "type": "workspace"
+    },
+    {
+      "id": "file:README.md",
+      "label": "README.md",
+      "metadata": {
+        "path": "README.md"
+      },
+      "type": "file"
+    },
+    {
+      "id": "dir:backend",
+      "label": "backend",
+      "metadata": {
+        "path": "backend"
+      },
+      "type": "directory"
+    },
+    {
+      "id": "file:backend/server.js",
+      "label": "server.js",
+      "metadata": {
+        "path": "backend/server.js"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:context.json",
+      "label": "context.json",
+      "metadata": {
+        "path": "context.json"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:context.md",
+      "label": "context.md",
+      "metadata": {
+        "path": "context.md"
+      },
+      "type": "file"
+    },
+    {
+      "id": "dir:docs",
+      "label": "docs",
+      "metadata": {
+        "path": "docs"
+      },
+      "type": "directory"
+    },
+    {
+      "id": "file:docs/ARCHITECTURE.md",
+      "label": "ARCHITECTURE.md",
+      "metadata": {
+        "path": "docs/ARCHITECTURE.md"
+      },
+      "type": "file"
+    },
+    {
+      "id": "dir:frontend",
+      "label": "frontend",
+      "metadata": {
+        "path": "frontend"
+      },
+      "type": "directory"
+    },
+    {
+      "id": "file:frontend/app.js",
+      "label": "app.js",
+      "metadata": {
+        "path": "frontend/app.js"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:package.json",
+      "label": "package.json",
+      "metadata": {
+        "path": "package.json"
+      },
+      "type": "file"
+    },
+    {
+      "id": "dir:shared",
+      "label": "shared",
+      "metadata": {
+        "path": "shared"
+      },
+      "type": "directory"
+    },
+    {
+      "id": "file:shared/utils.js",
+      "label": "utils.js",
+      "metadata": {
+        "path": "shared/utils.js"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:wir.graph.json",
+      "label": "wir.graph.json",
+      "metadata": {
+        "path": "wir.graph.json"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:wir.json",
+      "label": "wir.json",
+      "metadata": {
+        "path": "wir.json"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:workspace.json",
+      "label": "workspace.json",
+      "metadata": {
+        "path": "workspace.json"
+      },
+      "type": "file"
+    }
+  ],
+  "version": "0.2.0"
+}

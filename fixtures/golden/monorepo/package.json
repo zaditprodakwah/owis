@@ -1,0 +1,10 @@
+{
+  "name": "monorepo-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "test": "node --test packages/*/tests/*.test.js"
+  },
+  "license": "MIT"
+}

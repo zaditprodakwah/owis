@@ -1,14 +1,21 @@
 {
   "name": "owis",
-  "version": "0.1.0",
+  "version": "0.2.0-rc.1",
   "description": "Open Workspace Intelligence Specification",
   "license": "MIT",
+  "author": "Zadit Prodakwah",
   "repository": {
     "type": "git",
     "url": "https://github.com/zaditprodakwah/owis"
   },
+  "bugs": {
+    "url": "https://github.com/zaditprodakwah/owis/issues"
+  },
+  "homepage": "https://zaditprodakwah.github.io/owis/",
   "scripts": {
-    "validate": "node scripts/validate.js"
+    "validate": "node scripts/validate.js",
+    "fixtures:update": "node scripts/update-fixtures.js",
+    "docs:validate": "node scripts/validate-docs.js"
   },
   "devDependencies": {
     "vitepress": "^1.6.4",

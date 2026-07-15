@@ -1,0 +1,163 @@
+{
+  "architecture": {
+    "bounded_contexts": [
+      "Core Spec",
+      "Website"
+    ],
+    "layers": [
+      "Documentation",
+      "Portal Assets"
+    ],
+    "modules": [
+      {
+        "path": "README.md",
+        "size": 578
+      },
+      {
+        "path": "backend/server.js",
+        "size": 166
+      },
+      {
+        "path": "context.json",
+        "size": 6269
+      },
+      {
+        "path": "context.md",
+        "size": 890
+      },
+      {
+        "path": "docs/ARCHITECTURE.md",
+        "size": 207
+      },
+      {
+        "path": "frontend/app.js",
+        "size": 150
+      },
+      {
+        "path": "package.json",
+        "size": 308
+      },
+      {
+        "path": "shared/utils.js",
+        "size": 209
+      },
+      {
+        "path": "wir.graph.json",
+        "size": 306
+      },
+      {
+        "path": "wir.json",
+        "size": 275
+      }
+    ],
+    "packages": [],
+    "patterns": [
+      "Documentation-driven Design"
+    ],
+    "services": [],
+    "style": "Monolithic Codebase",
+    "workflows": []
+  },
+  "confidence": {
+    "architecture": 0.8,
+    "contracts": 0.8,
+    "overall": 0.85,
+    "workspace": 0.9
+  },
+  "contracts": {
+    "api": [],
+    "interfaces": [],
+    "schema": []
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "execution": {
+    "blockers": [],
+    "next_action": null,
+    "readiness": "READY",
+    "recommended_scope": [
+      "All components"
+    ],
+    "validation_required": []
+  },
+  "knowledge": {
+    "assumptions": [],
+    "business_rules": [],
+    "concepts": [
+      "Ontology Mapping",
+      "Workspace Intelligence"
+    ],
+    "glossary": {
+      "OWIS": "Open Workspace Intelligence Specification",
+      "UARS": "Universal Agent Runtime Specification",
+      "WIR": "Workspace Intelligence Report"
+    },
+    "terminology": {
+      "workspace": "The logical root folder containing software artifacts"
+    }
+  },
+  "project": {
+    "description": "Auto-generated workspace report by OWIS Reference Runtime",
+    "domain": "software-development",
+    "maturity": "Draft",
+    "name": "large-fullstack-app",
+    "objectives": [
+      "Workspace discovery",
+      "Ontology mapping"
+    ],
+    "repository_type": "git",
+    "stakeholders": [
+      "AI Agents",
+      "Human Developers"
+    ],
+    "version": "2.0.0"
+  },
+  "source_of_truth": {
+    "primary": [
+      "README.md"
+    ],
+    "reference": [
+      "context.md",
+      "docs/ARCHITECTURE.md"
+    ],
+    "secondary": [],
+    "temporary": []
+  },
+  "technology": {
+    "frameworks": [
+      "React"
+    ],
+    "languages": [
+      "Markdown",
+      "JavaScript",
+      "JSON"
+    ],
+    "libraries": [],
+    "package_managers": [
+      "npm"
+    ],
+    "runtimes": [
+      "Node.js"
+    ]
+  },
+  "workspace": {
+    "generated_at": "SNAPSHOT",
+    "ignored_paths": [
+      "node_modules",
+      ".git",
+      "dist",
+      "cache"
+    ],
+    "root": "SNAPSHOT",
+    "scanned_directories": 4,
+    "scanned_files": 11,
+    "supported_formats": [
+      ".md",
+      ".json",
+      ".js",
+      ".mjs"
+    ]
+  }
+}

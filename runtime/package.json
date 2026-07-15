@@ -1,15 +1,52 @@
 {
   "name": "owis-runtime",
-  "version": "0.1.0",
-  "description": "OWIS Reference Runtime Parser and WIR Generator",
+  "version": "0.2.0-rc.1",
+  "description": "OWIS Reference Runtime — Workspace Parser and WIR Generator",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
     "start": "node src/index.js",
-    "test": "node src/index.js ../examples/test-workspace && node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js"
   },
+  "exports": {
+    ".": "./src/index.js",
+    "./src/parser": "./src/parser.js",
+    "./src/validator": "./src/validator.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md"
+  ],
   "dependencies": {
-    "ajv": "^8.12.0"
+    "ajv": "8.17.1"
   },
   "license": "MIT",
-  "repository": "https://github.com/zaditprodakwah/owis"
+  "author": "Zadit Prodakwah",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaditprodakwah/owis"
+  },
+  "bugs": {
+    "url": "https://github.com/zaditprodakwah/owis/issues"
+  },
+  "homepage": "https://zaditprodakwah.github.io/owis/",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/owis"
+  },
+  "keywords": [
+    "owis",
+    "runtime",
+    "workspace",
+    "intelligence",
+    "wir",
+    "specification"
+  ]
 }

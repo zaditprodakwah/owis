@@ -1,0 +1,303 @@
+{
+  "contextVersion": "0.2.0",
+  "generatedAt": "SNAPSHOT",
+  "sources": {
+    "wir": "wir.json",
+    "graph": "wir.graph.json",
+    "workspace": "workspace.json"
+  },
+  "workspace": {
+    "name": "large-fullstack-app",
+    "version": "2.0.0",
+    "description": "",
+    "languages": []
+  },
+  "architecture": {
+    "style": "Monolithic Codebase",
+    "patterns": [
+      "Documentation-driven Design"
+    ],
+    "modules": [
+      {
+        "path": "README.md",
+        "size": 578
+      },
+      {
+        "path": "backend/server.js",
+        "size": 166
+      },
+      {
+        "path": "context.json",
+        "size": 6269
+      },
+      {
+        "path": "context.md",
+        "size": 890
+      },
+      {
+        "path": "docs/ARCHITECTURE.md",
+        "size": 207
+      },
+      {
+        "path": "frontend/app.js",
+        "size": 150
+      },
+      {
+        "path": "package.json",
+        "size": 308
+      },
+      {
+        "path": "shared/utils.js",
+        "size": 209
+      },
+      {
+        "path": "wir.graph.json",
+        "size": 306
+      },
+      {
+        "path": "wir.json",
+        "size": 275
+      }
+    ],
+    "layers": [
+      "Documentation",
+      "Portal Assets"
+    ],
+    "dependencies": {
+      "internal": [],
+      "external": []
+    }
+  },
+  "graph": {
+    "summary": {},
+    "nodes": [
+      {
+        "id": "workspace:large",
+        "type": "workspace",
+        "label": "large-fullstack-app",
+        "metadata": {
+          "version": "2.0.0"
+        }
+      },
+      {
+        "id": "file:README.md",
+        "type": "file",
+        "label": "README.md",
+        "metadata": {
+          "path": "README.md"
+        }
+      },
+      {
+        "id": "dir:backend",
+        "type": "directory",
+        "label": "backend",
+        "metadata": {
+          "path": "backend"
+        }
+      },
+      {
+        "id": "file:backend/server.js",
+        "type": "file",
+        "label": "server.js",
+        "metadata": {
+          "path": "backend/server.js"
+        }
+      },
+      {
+        "id": "file:context.json",
+        "type": "file",
+        "label": "context.json",
+        "metadata": {
+          "path": "context.json"
+        }
+      },
+      {
+        "id": "file:context.md",
+        "type": "file",
+        "label": "context.md",
+        "metadata": {
+          "path": "context.md"
+        }
+      },
+      {
+        "id": "dir:docs",
+        "type": "directory",
+        "label": "docs",
+        "metadata": {
+          "path": "docs"
+        }
+      },
+      {
+        "id": "file:docs/ARCHITECTURE.md",
+        "type": "file",
+        "label": "ARCHITECTURE.md",
+        "metadata": {
+          "path": "docs/ARCHITECTURE.md"
+        }
+      },
+      {
+        "id": "dir:frontend",
+        "type": "directory",
+        "label": "frontend",
+        "metadata": {
+          "path": "frontend"
+        }
+      },
+      {
+        "id": "file:frontend/app.js",
+        "type": "file",
+        "label": "app.js",
+        "metadata": {
+          "path": "frontend/app.js"
+        }
+      },
+      {
+        "id": "file:package.json",
+        "type": "file",
+        "label": "package.json",
+        "metadata": {
+          "path": "package.json"
+        }
+      },
+      {
+        "id": "dir:shared",
+        "type": "directory",
+        "label": "shared",
+        "metadata": {
+          "path": "shared"
+        }
+      },
+      {
+        "id": "file:shared/utils.js",
+        "type": "file",
+        "label": "utils.js",
+        "metadata": {
+          "path": "shared/utils.js"
+        }
+      },
+      {
+        "id": "file:wir.graph.json",
+        "type": "file",
+        "label": "wir.graph.json",
+        "metadata": {
+          "path": "wir.graph.json"
+        }
+      },
+      {
+        "id": "file:wir.json",
+        "type": "file",
+        "label": "wir.json",
+        "metadata": {
+          "path": "wir.json"
+        }
+      },
+      {
+        "id": "file:workspace.json",
+        "type": "file",
+        "label": "workspace.json",
+        "metadata": {
+          "path": "workspace.json"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": "workspace:large",
+        "to": "file:README.md",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:large",
+        "to": "dir:backend",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "dir:backend",
+        "to": "file:backend/server.js",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:large",
+        "to": "file:context.json",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:large",
+        "to": "file:context.md",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:large",
+        "to": "dir:docs",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "dir:docs",
+        "to": "file:docs/ARCHITECTURE.md",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:large",
+        "to": "dir:frontend",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "dir:frontend",
+        "to": "file:frontend/app.js",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:large",
+        "to": "file:package.json",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:large",
+        "to": "dir:shared",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "dir:shared",
+        "to": "file:shared/utils.js",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:large",
+        "to": "file:wir.graph.json",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:large",
+        "to": "file:wir.json",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:large",
+        "to": "file:workspace.json",
+        "type": "contains",
+        "metadata": {}
+      }
+    ]
+  },
+  "quality": {
+    "lintSummary": {},
+    "issues": []
+  },
+  "constraints": {},
+  "metadata": {},
+  "_truncated": false
+}

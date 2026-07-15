@@ -1,0 +1,7 @@
+{
+  "name": "medium-nodejs-api",
+  "version": "1.0.0",
+  "roots": ["."],
+  "exclude": ["node_modules", ".git", "dist", "cache"],
+  "settings": {}
+}

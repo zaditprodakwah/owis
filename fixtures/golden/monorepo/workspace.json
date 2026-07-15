@@ -1,0 +1,7 @@
+{
+  "name": "monorepo-workspace",
+  "version": "0.1.0",
+  "roots": ["packages/core", "packages/cli", "packages/sdk"],
+  "exclude": ["node_modules", ".git", "dist", "cache"],
+  "settings": {}
+}

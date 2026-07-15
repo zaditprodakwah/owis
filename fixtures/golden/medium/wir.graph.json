@@ -1,0 +1,197 @@
+{
+  "edges": [
+    {
+      "from": "workspace:medium",
+      "metadata": {},
+      "to": "file:README.md",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:medium",
+      "metadata": {},
+      "to": "file:context.json",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:medium",
+      "metadata": {},
+      "to": "file:context.md",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:medium",
+      "metadata": {},
+      "to": "dir:docs",
+      "type": "contains"
+    },
+    {
+      "from": "dir:docs",
+      "metadata": {},
+      "to": "file:docs/API.md",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:medium",
+      "metadata": {},
+      "to": "file:package.json",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:medium",
+      "metadata": {},
+      "to": "dir:src",
+      "type": "contains"
+    },
+    {
+      "from": "dir:src",
+      "metadata": {},
+      "to": "file:src/index.js",
+      "type": "contains"
+    },
+    {
+      "from": "dir:src",
+      "metadata": {},
+      "to": "file:src/models.js",
+      "type": "contains"
+    },
+    {
+      "from": "dir:src",
+      "metadata": {},
+      "to": "file:src/routes.js",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:medium",
+      "metadata": {},
+      "to": "file:wir.graph.json",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:medium",
+      "metadata": {},
+      "to": "file:wir.json",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:medium",
+      "metadata": {},
+      "to": "file:workspace.json",
+      "type": "contains"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "workspace:medium",
+      "label": "medium-nodejs-api",
+      "metadata": {
+        "version": "1.0.0"
+      },
+      "type": "workspace"
+    },
+    {
+      "id": "file:README.md",
+      "label": "README.md",
+      "metadata": {
+        "path": "README.md"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:context.json",
+      "label": "context.json",
+      "metadata": {
+        "path": "context.json"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:context.md",
+      "label": "context.md",
+      "metadata": {
+        "path": "context.md"
+      },
+      "type": "file"
+    },
+    {
+      "id": "dir:docs",
+      "label": "docs",
+      "metadata": {
+        "path": "docs"
+      },
+      "type": "directory"
+    },
+    {
+      "id": "file:docs/API.md",
+      "label": "API.md",
+      "metadata": {
+        "path": "docs/API.md"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:package.json",
+      "label": "package.json",
+      "metadata": {
+        "path": "package.json"
+      },
+      "type": "file"
+    },
+    {
+      "id": "dir:src",
+      "label": "src",
+      "metadata": {
+        "path": "src"
+      },
+      "type": "directory"
+    },
+    {
+      "id": "file:src/index.js",
+      "label": "index.js",
+      "metadata": {
+        "path": "src/index.js"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:src/models.js",
+      "label": "models.js",
+      "metadata": {
+        "path": "src/models.js"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:src/routes.js",
+      "label": "routes.js",
+      "metadata": {
+        "path": "src/routes.js"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:wir.graph.json",
+      "label": "wir.graph.json",
+      "metadata": {
+        "path": "wir.graph.json"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:wir.json",
+      "label": "wir.json",
+      "metadata": {
+        "path": "wir.json"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:workspace.json",
+      "label": "workspace.json",
+      "metadata": {
+        "path": "workspace.json"
+      },
+      "type": "file"
+    }
+  ],
+  "version": "0.2.0"
+}

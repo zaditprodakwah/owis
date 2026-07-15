@@ -1,0 +1,7 @@
+{
+  "type": "oversized-metadata",
+  "description": "Metadata fields exceeding allowed size limits",
+  "threat": "Memory exhaustion or JSON serialization failures on large inputs",
+  "mitigation": "Budget enforcement in sanitizer must truncate oversized metadata blocks",
+  "sizesBytes": [65536, 524288, 1048576, 10485760]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "ansi-escape",
+  "description": "Strings containing ANSI terminal escape sequences",
+  "threat": "Terminal hijacking or output corruption when CLI renders user-controlled strings",
+  "mitigation": "Formatter must strip or escape ANSI sequences in user-controlled fields",
+  "payloads": [
+    "\u001b[31mRed text\u001b[0m",
+    "\u001b[1;32mBold green\u001b[0m",
+    "\u001b]0;injected title\u0007",
+    "\u001b[2J\u001b[H",
+    "\u001bc"
+  ]
+}

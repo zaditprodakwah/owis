@@ -1,0 +1,18 @@
+{
+  "type": "cyclic-dependency",
+  "description": "A dependency graph containing circular references (A→B→C→A)",
+  "threat": "Infinite recursion or stack overflow in graph traversal algorithms",
+  "mitigation": "Graph analyzer must detect cycles and report them without hanging",
+  "exampleCycle": {
+    "nodes": [
+      { "id": "module:A", "type": "module", "label": "A", "metadata": {} },
+      { "id": "module:B", "type": "module", "label": "B", "metadata": {} },
+      { "id": "module:C", "type": "module", "label": "C", "metadata": {} }
+    ],
+    "edges": [
+      { "from": "module:A", "to": "module:B", "type": "depends_on", "metadata": {} },
+      { "from": "module:B", "to": "module:C", "type": "depends_on", "metadata": {} },
+      { "from": "module:C", "to": "module:A", "type": "depends_on", "metadata": {} }
+    ]
+  }
+}

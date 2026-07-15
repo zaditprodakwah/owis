@@ -1,0 +1,58 @@
+{
+  "name": "@prodakwah/owis-context",
+  "version": "0.2.0-rc.1",
+  "description": "OWIS Provider-Neutral LLM Context Layer — Build, Sanitize, and Serialize AI Context",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "builder.js",
+    "sanitizer.js",
+    "validator.js",
+    "serializer.js",
+    "limits.js",
+    "adapters",
+    "schema.json",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md"
+  ],
+  "dependencies": {
+    "ajv": "8.17.1"
+  },
+  "devDependencies": {},
+  "license": "MIT",
+  "author": "Zadit Prodakwah",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaditprodakwah/owis"
+  },
+  "bugs": {
+    "url": "https://github.com/zaditprodakwah/owis/issues"
+  },
+  "homepage": "https://zaditprodakwah.github.io/owis/",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/owis"
+  },
+  "keywords": [
+    "owis",
+    "context",
+    "workspace",
+    "intelligence",
+    "wir",
+    "specification",
+    "llm",
+    "ai"
+  ]
+}

@@ -1,16 +1,50 @@
 {
   "name": "@prodakwah/owis",
-  "version": "0.1.0",
-  "description": "OWIS Command Line Tool",
+  "version": "0.2.0-rc.1",
+  "description": "OWIS Command Line Tool — Workspace Scan, Lint, and Context Generation",
   "bin": {
     "owis": "./bin/owis.js"
   },
   "scripts": {
-    "test": "node ./bin/owis.js ../examples/test-workspace"
+    "test": "node --test"
   },
+  "exports": {
+    ".": "./bin/owis.js"
+  },
+  "files": [
+    "bin",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md"
+  ],
   "dependencies": {
-    "ajv": "^8.12.0"
+    "ajv": "8.17.1"
   },
   "license": "MIT",
-  "repository": "https://github.com/zaditprodakwah/owis"
+  "author": "Zadit Prodakwah",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaditprodakwah/owis"
+  },
+  "bugs": {
+    "url": "https://github.com/zaditprodakwah/owis/issues"
+  },
+  "homepage": "https://zaditprodakwah.github.io/owis/",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/owis"
+  },
+  "keywords": [
+    "owis",
+    "cli",
+    "workspace",
+    "intelligence",
+    "wir",
+    "specification"
+  ]
 }

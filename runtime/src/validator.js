@@ -7,7 +7,10 @@ const ajv = new Ajv({ allErrors: true });
 function validate(schemaName, data) {
   const schemaPath = path.join(__dirname, '../../docs/20-SCHEMA', `${schemaName}.schema.json`);
   if (!fs.existsSync(schemaPath)) {
-    throw new Error(`Schema ${schemaName} not found at ${schemaPath}`);
+    return {
+      valid: false,
+      errors: [{ message: `Unknown schema: ${schemaName}` }]
+    };
   }
   const schemaContent = JSON.parse(fs.readFileSync(schemaPath, 'utf8'));
   const validateFn = ajv.compile(schemaContent);

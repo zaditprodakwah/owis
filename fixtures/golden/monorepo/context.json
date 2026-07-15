@@ -1,0 +1,289 @@
+{
+  "contextVersion": "0.2.0",
+  "generatedAt": "SNAPSHOT",
+  "sources": {
+    "wir": "wir.json",
+    "graph": "wir.graph.json",
+    "workspace": "workspace.json"
+  },
+  "workspace": {
+    "name": "monorepo-workspace",
+    "version": "0.1.0",
+    "description": "",
+    "languages": []
+  },
+  "architecture": {
+    "style": "Monolithic Codebase",
+    "patterns": [
+      "Documentation-driven Design"
+    ],
+    "modules": [
+      {
+        "path": "README.md",
+        "size": 507
+      },
+      {
+        "path": "context.json",
+        "size": 6075
+      },
+      {
+        "path": "context.md",
+        "size": 890
+      },
+      {
+        "path": "package.json",
+        "size": 201
+      },
+      {
+        "path": "packages/cli/bin.js",
+        "size": 151
+      },
+      {
+        "path": "packages/core/index.js",
+        "size": 135
+      },
+      {
+        "path": "packages/sdk/index.js",
+        "size": 153
+      },
+      {
+        "path": "wir.graph.json",
+        "size": 290
+      },
+      {
+        "path": "wir.json",
+        "size": 275
+      },
+      {
+        "path": "workspace.json",
+        "size": 193
+      }
+    ],
+    "layers": [
+      "Documentation",
+      "Portal Assets"
+    ],
+    "dependencies": {
+      "internal": [],
+      "external": []
+    }
+  },
+  "graph": {
+    "summary": {},
+    "nodes": [
+      {
+        "id": "workspace:monorepo",
+        "type": "workspace",
+        "label": "monorepo-workspace",
+        "metadata": {
+          "version": "0.1.0"
+        }
+      },
+      {
+        "id": "file:README.md",
+        "type": "file",
+        "label": "README.md",
+        "metadata": {
+          "path": "README.md"
+        }
+      },
+      {
+        "id": "file:context.json",
+        "type": "file",
+        "label": "context.json",
+        "metadata": {
+          "path": "context.json"
+        }
+      },
+      {
+        "id": "file:context.md",
+        "type": "file",
+        "label": "context.md",
+        "metadata": {
+          "path": "context.md"
+        }
+      },
+      {
+        "id": "file:package.json",
+        "type": "file",
+        "label": "package.json",
+        "metadata": {
+          "path": "package.json"
+        }
+      },
+      {
+        "id": "dir:packages",
+        "type": "directory",
+        "label": "packages",
+        "metadata": {
+          "path": "packages"
+        }
+      },
+      {
+        "id": "dir:packages/cli",
+        "type": "directory",
+        "label": "cli",
+        "metadata": {
+          "path": "packages/cli"
+        }
+      },
+      {
+        "id": "file:packages/cli/bin.js",
+        "type": "file",
+        "label": "bin.js",
+        "metadata": {
+          "path": "packages/cli/bin.js"
+        }
+      },
+      {
+        "id": "dir:packages/core",
+        "type": "directory",
+        "label": "core",
+        "metadata": {
+          "path": "packages/core"
+        }
+      },
+      {
+        "id": "file:packages/core/index.js",
+        "type": "file",
+        "label": "index.js",
+        "metadata": {
+          "path": "packages/core/index.js"
+        }
+      },
+      {
+        "id": "dir:packages/sdk",
+        "type": "directory",
+        "label": "sdk",
+        "metadata": {
+          "path": "packages/sdk"
+        }
+      },
+      {
+        "id": "file:packages/sdk/index.js",
+        "type": "file",
+        "label": "index.js",
+        "metadata": {
+          "path": "packages/sdk/index.js"
+        }
+      },
+      {
+        "id": "file:wir.graph.json",
+        "type": "file",
+        "label": "wir.graph.json",
+        "metadata": {
+          "path": "wir.graph.json"
+        }
+      },
+      {
+        "id": "file:wir.json",
+        "type": "file",
+        "label": "wir.json",
+        "metadata": {
+          "path": "wir.json"
+        }
+      },
+      {
+        "id": "file:workspace.json",
+        "type": "file",
+        "label": "workspace.json",
+        "metadata": {
+          "path": "workspace.json"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": "workspace:monorepo",
+        "to": "file:README.md",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:monorepo",
+        "to": "file:context.json",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:monorepo",
+        "to": "file:context.md",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:monorepo",
+        "to": "file:package.json",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:monorepo",
+        "to": "dir:packages",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "dir:packages",
+        "to": "dir:packages/cli",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "dir:packages/cli",
+        "to": "file:packages/cli/bin.js",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "dir:packages",
+        "to": "dir:packages/core",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "dir:packages/core",
+        "to": "file:packages/core/index.js",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "dir:packages",
+        "to": "dir:packages/sdk",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "dir:packages/sdk",
+        "to": "file:packages/sdk/index.js",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:monorepo",
+        "to": "file:wir.graph.json",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:monorepo",
+        "to": "file:wir.json",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:monorepo",
+        "to": "file:workspace.json",
+        "type": "contains",
+        "metadata": {}
+      }
+    ]
+  },
+  "quality": {
+    "lintSummary": {},
+    "issues": []
+  },
+  "constraints": {},
+  "metadata": {},
+  "_truncated": false
+}

@@ -2,6 +2,7 @@ const { parseWorkspace } = require('../../runtime/src/parser');
 const { validate } = require('../../runtime/src/validator');
 const { parseGraph, analyzeGraph, serializeGraph } = require('../../graph');
 const lint = require('../../lint');
+const { buildContext, sanitizeContext, validateContext, serializeContext, loadContext } = require('../../context');
 
 /**
  * Parses a target workspace and builds a synthesized Workspace Intelligence Report.
@@ -27,5 +28,11 @@ module.exports = {
   check,
   parseGraph,
   analyzeGraph,
-  serializeGraph
+  serializeGraph,
+  lint,
+  buildContext,
+  sanitizeContext,
+  validateContext,
+  serializeContext: (context, format) => serializeContext(context, format),
+  loadContext
 };

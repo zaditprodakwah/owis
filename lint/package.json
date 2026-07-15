@@ -1,18 +1,54 @@
 {
   "name": "@prodakwah/owis-lint",
-  "version": "0.1.0",
-  "description": "OWIS Architecture Linter",
+  "version": "0.2.0-rc.1",
+  "description": "OWIS Architecture Linter — WIR Rule Engine",
   "main": "index.js",
   "scripts": {
-    "test": "node tests/index.test.js"
+    "test": "node --test tests/index.test.js"
+  },
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "engine.js",
+    "registry.js",
+    "formatter.js",
+    "scorer.js",
+    "rules",
+    "types",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "license": "MIT",
+  "author": "Zadit Prodakwah",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaditprodakwah/owis"
+  },
+  "bugs": {
+    "url": "https://github.com/zaditprodakwah/owis/issues"
+  },
+  "homepage": "https://zaditprodakwah.github.io/owis/",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/owis"
   },
   "keywords": [
     "owis",
     "lint",
-    "architecture"
-  ],
-  "author": "Zadit Prodakwah",
-  "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {}
+    "workspace",
+    "intelligence",
+    "wir",
+    "specification",
+    "linter"
+  ]
 }

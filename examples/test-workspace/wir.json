@@ -1,7 +1,7 @@
 {
   "workspace": {
     "root": "/Users/mac/Downloads/PROYEK/OWIS/examples/test-workspace",
-    "scanned_files": 4,
+    "scanned_files": 7,
     "scanned_directories": 1,
     "ignored_paths": [
       "node_modules",
@@ -15,7 +15,7 @@
       ".js",
       ".mjs"
     ],
-    "generated_at": "2026-07-15T00:00:12.354Z"
+    "generated_at": "2026-07-15T00:34:01.151Z"
   },
   "project": {
     "name": "test-workspace-example",
@@ -39,7 +39,8 @@
     ],
     "secondary": [],
     "reference": [
-      "artifacts/sample.md"
+      "artifacts/sample.md",
+      "context.md"
     ],
     "temporary": []
   },
@@ -78,8 +79,20 @@
         "size": 117
       },
       {
+        "path": "context.json",
+        "size": 3251
+      },
+      {
+        "path": "context.md",
+        "size": 653
+      },
+      {
+        "path": "wir.graph.json",
+        "size": 2556
+      },
+      {
         "path": "wir.json",
-        "size": 2635
+        "size": 2864
       },
       {
         "path": "workspace.json",

@@ -1,0 +1,7 @@
+{
+  "name": "test-workspace-example",
+  "version": "0.1.0",
+  "roots": ["."],
+  "exclude": ["node_modules", ".git"],
+  "settings": {}
+}

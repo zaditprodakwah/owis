@@ -2,7 +2,20 @@
 
 All notable changes to the OWIS specification will be documented in this file.
 
-## v0.2.0-alpha.2
+## v0.2.0-beta.1
+
+**Status**: Implemented
+**Focus**: RFC-002 LLM Context Layer
+
+Added:
+- Standalone `@prodakwah/owis-context` package for provider-neutral LLM context generation
+- Builder for composing context from workspace, WIR, graph, and lint reports
+- Strict Sanitizer pipeline (Secret Redaction, Path Filtering, Prompt Injection Detection, Budget Enforcement)
+- JSON and Markdown serialization adapters
+- Additive CLI command `owis context <workspace>`
+- Added Context APIs to SDK (`buildContext`, `sanitizeContext`, `validateContext`, `serializeContext`)
+
+
 
 **Status**: Implemented
 **Focus**: RFC-001 WIR Graph Engine

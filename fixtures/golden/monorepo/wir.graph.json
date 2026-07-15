@@ -1,0 +1,211 @@
+{
+  "edges": [
+    {
+      "from": "workspace:monorepo",
+      "metadata": {},
+      "to": "file:README.md",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:monorepo",
+      "metadata": {},
+      "to": "file:context.json",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:monorepo",
+      "metadata": {},
+      "to": "file:context.md",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:monorepo",
+      "metadata": {},
+      "to": "file:package.json",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:monorepo",
+      "metadata": {},
+      "to": "dir:packages",
+      "type": "contains"
+    },
+    {
+      "from": "dir:packages",
+      "metadata": {},
+      "to": "dir:packages/cli",
+      "type": "contains"
+    },
+    {
+      "from": "dir:packages/cli",
+      "metadata": {},
+      "to": "file:packages/cli/bin.js",
+      "type": "contains"
+    },
+    {
+      "from": "dir:packages",
+      "metadata": {},
+      "to": "dir:packages/core",
+      "type": "contains"
+    },
+    {
+      "from": "dir:packages/core",
+      "metadata": {},
+      "to": "file:packages/core/index.js",
+      "type": "contains"
+    },
+    {
+      "from": "dir:packages",
+      "metadata": {},
+      "to": "dir:packages/sdk",
+      "type": "contains"
+    },
+    {
+      "from": "dir:packages/sdk",
+      "metadata": {},
+      "to": "file:packages/sdk/index.js",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:monorepo",
+      "metadata": {},
+      "to": "file:wir.graph.json",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:monorepo",
+      "metadata": {},
+      "to": "file:wir.json",
+      "type": "contains"
+    },
+    {
+      "from": "workspace:monorepo",
+      "metadata": {},
+      "to": "file:workspace.json",
+      "type": "contains"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "workspace:monorepo",
+      "label": "monorepo-workspace",
+      "metadata": {
+        "version": "0.1.0"
+      },
+      "type": "workspace"
+    },
+    {
+      "id": "file:README.md",
+      "label": "README.md",
+      "metadata": {
+        "path": "README.md"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:context.json",
+      "label": "context.json",
+      "metadata": {
+        "path": "context.json"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:context.md",
+      "label": "context.md",
+      "metadata": {
+        "path": "context.md"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:package.json",
+      "label": "package.json",
+      "metadata": {
+        "path": "package.json"
+      },
+      "type": "file"
+    },
+    {
+      "id": "dir:packages",
+      "label": "packages",
+      "metadata": {
+        "path": "packages"
+      },
+      "type": "directory"
+    },
+    {
+      "id": "dir:packages/cli",
+      "label": "cli",
+      "metadata": {
+        "path": "packages/cli"
+      },
+      "type": "directory"
+    },
+    {
+      "id": "file:packages/cli/bin.js",
+      "label": "bin.js",
+      "metadata": {
+        "path": "packages/cli/bin.js"
+      },
+      "type": "file"
+    },
+    {
+      "id": "dir:packages/core",
+      "label": "core",
+      "metadata": {
+        "path": "packages/core"
+      },
+      "type": "directory"
+    },
+    {
+      "id": "file:packages/core/index.js",
+      "label": "index.js",
+      "metadata": {
+        "path": "packages/core/index.js"
+      },
+      "type": "file"
+    },
+    {
+      "id": "dir:packages/sdk",
+      "label": "sdk",
+      "metadata": {
+        "path": "packages/sdk"
+      },
+      "type": "directory"
+    },
+    {
+      "id": "file:packages/sdk/index.js",
+      "label": "index.js",
+      "metadata": {
+        "path": "packages/sdk/index.js"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:wir.graph.json",
+      "label": "wir.graph.json",
+      "metadata": {
+        "path": "wir.graph.json"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:wir.json",
+      "label": "wir.json",
+      "metadata": {
+        "path": "wir.json"
+      },
+      "type": "file"
+    },
+    {
+      "id": "file:workspace.json",
+      "label": "workspace.json",
+      "metadata": {
+        "path": "workspace.json"
+      },
+      "type": "file"
+    }
+  ],
+  "version": "0.2.0"
+}

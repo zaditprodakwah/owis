@@ -10,7 +10,17 @@ function scanDirectory(baseDir, excludeDirs = ['node_modules', '.git', 'dist', '
     list.forEach(item => {
       if (excludeDirs.includes(item)) return;
       const fullPath = path.join(currentDir, item);
-      const stat = fs.statSync(fullPath);
+      let stat;
+      try {
+        stat = fs.lstatSync(fullPath);
+      } catch (e) {
+        return; // Ignore files that cannot be stat-ed (e.g., ELOOP)
+      }
+      
+      if (stat.isSymbolicLink()) {
+        return; // Skip symlinks to avoid recursion loops
+      }
+
       if (stat.isDirectory()) {
         dirsCount++;
         walk(fullPath);

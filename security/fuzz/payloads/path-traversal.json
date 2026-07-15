@@ -1,0 +1,13 @@
+{
+  "type": "path-traversal",
+  "description": "File paths containing ../ sequences to escape the workspace root",
+  "threat": "Reading or writing files outside the intended workspace directory",
+  "mitigation": "All paths must be resolved relative to the workspace root and validated before use",
+  "payloads": [
+    "../../../etc/passwd",
+    "..\\..\\..\\Windows\\System32\\config\\SAM",
+    "foo/../../../secret.key",
+    "./../../outside/workspace/config.json",
+    "%2e%2e%2f%2e%2e%2fetc%2fpasswd"
+  ]
+}

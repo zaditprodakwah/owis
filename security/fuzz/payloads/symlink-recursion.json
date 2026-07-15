@@ -1,0 +1,6 @@
+{
+  "type": "symlink-recursion",
+  "description": "Simulates a workspace where symlinks form a recursive loop",
+  "threat": "Infinite directory traversal leading to stack overflow or infinite loop",
+  "mitigation": "Symlink following must be disabled or depth-limited during scan"
+}

@@ -1,13 +1,55 @@
 {
   "name": "@prodakwah/owis-graph",
-  "version": "0.1.0",
-  "description": "OWIS WIR Graph Engine",
+  "version": "0.2.0-rc.1",
+  "description": "OWIS WIR Graph Engine — Workspace Topology Extraction and Analysis",
   "main": "index.js",
   "scripts": {
     "test": "node --test tests/*.test.js"
   },
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "graph.js",
+    "extractor.js",
+    "analyzer.js",
+    "serializer.js",
+    "registry.js",
+    "nodes",
+    "edges",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md"
+  ],
   "dependencies": {},
   "devDependencies": {},
   "license": "MIT",
-  "repository": "https://github.com/zaditprodakwah/owis"
+  "author": "Zadit Prodakwah",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaditprodakwah/owis"
+  },
+  "bugs": {
+    "url": "https://github.com/zaditprodakwah/owis/issues"
+  },
+  "homepage": "https://zaditprodakwah.github.io/owis/",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/owis"
+  },
+  "keywords": [
+    "owis",
+    "graph",
+    "workspace",
+    "intelligence",
+    "wir",
+    "specification",
+    "topology"
+  ]
 }

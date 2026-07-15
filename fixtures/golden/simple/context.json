@@ -1,0 +1,193 @@
+{
+  "contextVersion": "0.2.0",
+  "generatedAt": "SNAPSHOT",
+  "sources": {
+    "wir": "wir.json",
+    "graph": "wir.graph.json",
+    "workspace": "workspace.json"
+  },
+  "workspace": {
+    "name": "test-workspace-example",
+    "version": "0.1.0",
+    "description": "",
+    "languages": []
+  },
+  "architecture": {
+    "style": "Monolithic Codebase",
+    "patterns": [
+      "Documentation-driven Design"
+    ],
+    "modules": [
+      {
+        "path": "README.md",
+        "size": 1349
+      },
+      {
+        "path": "artifacts/sample.md",
+        "size": 117
+      },
+      {
+        "path": "context.json",
+        "size": 3942
+      },
+      {
+        "path": "context.md",
+        "size": 685
+      },
+      {
+        "path": "wir.graph.json",
+        "size": 194
+      },
+      {
+        "path": "wir.json",
+        "size": 275
+      },
+      {
+        "path": "workspace.json",
+        "size": 136
+      }
+    ],
+    "layers": [
+      "Documentation",
+      "Portal Assets"
+    ],
+    "dependencies": {
+      "internal": [],
+      "external": []
+    }
+  },
+  "graph": {
+    "summary": {},
+    "nodes": [
+      {
+        "id": "workspace:simple",
+        "type": "workspace",
+        "label": "test-workspace-example",
+        "metadata": {
+          "version": "0.1.0"
+        }
+      },
+      {
+        "id": "file:README.md",
+        "type": "file",
+        "label": "README.md",
+        "metadata": {
+          "path": "README.md"
+        }
+      },
+      {
+        "id": "dir:artifacts",
+        "type": "directory",
+        "label": "artifacts",
+        "metadata": {
+          "path": "artifacts"
+        }
+      },
+      {
+        "id": "file:artifacts/sample.md",
+        "type": "file",
+        "label": "sample.md",
+        "metadata": {
+          "path": "artifacts/sample.md"
+        }
+      },
+      {
+        "id": "file:context.json",
+        "type": "file",
+        "label": "context.json",
+        "metadata": {
+          "path": "context.json"
+        }
+      },
+      {
+        "id": "file:context.md",
+        "type": "file",
+        "label": "context.md",
+        "metadata": {
+          "path": "context.md"
+        }
+      },
+      {
+        "id": "file:wir.graph.json",
+        "type": "file",
+        "label": "wir.graph.json",
+        "metadata": {
+          "path": "wir.graph.json"
+        }
+      },
+      {
+        "id": "file:wir.json",
+        "type": "file",
+        "label": "wir.json",
+        "metadata": {
+          "path": "wir.json"
+        }
+      },
+      {
+        "id": "file:workspace.json",
+        "type": "file",
+        "label": "workspace.json",
+        "metadata": {
+          "path": "workspace.json"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": "workspace:simple",
+        "to": "file:README.md",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:simple",
+        "to": "dir:artifacts",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "dir:artifacts",
+        "to": "file:artifacts/sample.md",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:simple",
+        "to": "file:context.json",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:simple",
+        "to": "file:context.md",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:simple",
+        "to": "file:wir.graph.json",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:simple",
+        "to": "file:wir.json",
+        "type": "contains",
+        "metadata": {}
+      },
+      {
+        "from": "workspace:simple",
+        "to": "file:workspace.json",
+        "type": "contains",
+        "metadata": {}
+      }
+    ]
+  },
+  "quality": {
+    "lintSummary": {},
+    "issues": []
+  },
+  "constraints": {},
+  "metadata": {},
+  "_truncated": false
+}

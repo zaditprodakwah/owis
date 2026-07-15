@@ -1,0 +1,14 @@
+{
+  "name": "large-fullstack-app",
+  "version": "2.0.0",
+  "description": "A large-scale full-stack application",
+  "scripts": {
+    "dev": "node backend/server.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "react": "^18.2.0"
+  },
+  "license": "MIT"
+}

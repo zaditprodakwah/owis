@@ -5,17 +5,39 @@ const path = require('path');
 const { parseWorkspace } = require('../../runtime/src/parser');
 const { validate } = require('../../runtime/src/validator');
 
+function deterministicStringify(obj) {
+  if (Array.isArray(obj)) {
+    return '[' + obj.map(deterministicStringify).join(',') + ']';
+  } else if (obj !== null && typeof obj === 'object') {
+    const keys = Object.keys(obj).sort();
+    const props = keys.map(k => JSON.stringify(k) + ':' + deterministicStringify(obj[k]));
+    return '{' + props.join(',') + '}';
+  }
+  return JSON.stringify(obj);
+}
+
+// Ensure proper spacing and lines
+function stringifyPretty(obj) {
+  const parsed = JSON.parse(deterministicStringify(obj));
+  return JSON.stringify(parsed, null, 2);
+}
+
 const args = process.argv.slice(2);
 
 function printHelp() {
   console.log(`
-OWIS CLI Tool v0.1.0
+OWIS CLI Tool v0.2.0-rc.1
 
 Usage:
-  owis [workspace-path] [options]
+  owis [command] [workspace-path] [options]
+
+Commands:
+  scan       (default) Scan workspace and generate WIR and Graph
+  lint       Run linter on the workspace
+  context    Generate LLM context files
 
 Options:
-  -o, --output <path>    Specify path to save the generated wir.json (default: workspace root)
+  -o, --output <path>    Specify path to save the generated artifacts
   -h, --help             Show this help screen
   -v, --version          Show version details
 `);
@@ -41,7 +63,7 @@ if (outputIdx !== -1 && args[outputIdx + 1]) {
 }
 
 let command = 'scan';
-if (args[0] === 'lint' || args[0] === 'scan') {
+if (args[0] === 'lint' || args[0] === 'scan' || args[0] === 'context') {
   command = args[0];
   args.shift();
 }
@@ -70,6 +92,54 @@ if (command === 'lint') {
     }
   } catch (err) {
     console.error('Linting failed:', err.message);
+    process.exit(1);
+  }
+} else if (command === 'context') {
+  const { buildContext, sanitizeContext, validateContext, serializeContext } = require('../../context');
+  
+  const sourcesMap = {};
+  const payloads = {};
+  
+  const attemptLoad = (filename, key) => {
+    const fullPath = path.join(path.resolve(targetWorkspace), filename);
+    if (fs.existsSync(fullPath)) {
+      try {
+        payloads[key] = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+        sourcesMap[key] = filename;
+      } catch (e) {}
+    }
+  };
+
+  attemptLoad('workspace.json', 'workspace');
+  attemptLoad('wir.json', 'wir');
+  attemptLoad('wir.graph.json', 'graph');
+  attemptLoad('lint.json', 'lint');
+
+  try {
+    const rawContext = buildContext(payloads, sourcesMap);
+    const { context: cleanContext, diagnostics } = sanitizeContext(rawContext);
+    
+    const valResult = validateContext(cleanContext);
+    if (!valResult.valid) {
+      console.error('Context validation failed:', valResult.errors);
+      process.exit(1);
+    }
+    
+    const outJson = serializeContext(cleanContext, 'json');
+    const outMd = serializeContext(cleanContext, 'markdown');
+    
+    fs.writeFileSync(path.join(path.resolve(targetWorkspace), 'context.json'), outJson, 'utf8');
+    fs.writeFileSync(path.join(path.resolve(targetWorkspace), 'context.md'), outMd, 'utf8');
+    
+    console.log('\nContext generated\n');
+    console.log('Sources:');
+    Object.values(sourcesMap).forEach(s => console.log(`✓ ${s}`));
+    console.log('\nOutput:\n✓ context.json\n✓ context.md\n');
+    console.log(`Warnings:\n${diagnostics.length}\n`);
+    console.log(`Truncated:\n${cleanContext._truncated ? 'Yes' : 'No'}\n`);
+    
+  } catch (err) {
+    console.error('Context generation failed:', err.message);
     process.exit(1);
   }
 } else {
@@ -107,7 +177,7 @@ if (command === 'lint') {
       ? path.resolve(outputPathOverride) 
       : path.join(path.resolve(targetWorkspace), 'wir.json');
 
-    fs.writeFileSync(wirOutputPath, JSON.stringify(wir, null, 2), 'utf8');
+    fs.writeFileSync(wirOutputPath, stringifyPretty(wir), 'utf8');
 
     // Graph Extraction (Phase 14.2)
     const { parseGraph, analyzeGraph, serializeGraph } = require('../../graph');
@@ -119,7 +189,7 @@ if (command === 'lint') {
       ? path.resolve(outputPathOverride).replace(/\.json$/, '.graph.json')
       : path.join(path.resolve(targetWorkspace), 'wir.graph.json');
       
-    fs.writeFileSync(graphOutputPath, JSON.stringify(serializedGraph, null, 2), 'utf8');
+    fs.writeFileSync(graphOutputPath, stringifyPretty(serializedGraph), 'utf8');
     
     console.log('✓ WIR Graph');
     console.log(`  - Nodes: ${analysis.counts.nodes}`);
