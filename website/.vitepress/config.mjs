@@ -22,7 +22,44 @@ export default defineConfig({
   srcDir: '..',
   srcExclude: ['**/node_modules/**', 'website/dist/**', 'website/cache/**'],
   sitemap: {
-    hostname: 'https://zaditprodakwah.github.io/owis/'
+    hostname: 'https://zaditprodakwah.github.io/owis/',
+    lastmodDateOnly: false
+  },
+  transformHead: (context) => {
+    const { pageData } = context;
+    const hostname = 'https://zaditprodakwah.github.io/owis';
+    const cleanPath = pageData.relativePath
+      .replace(/(^|\/)index\.md$/, '$1')
+      .replace(/\.md$/, '');
+    
+    // Memastikan penggabungan URL tidak menghasilkan double slash yang merusak tag canonical
+    const canonicalUrl = `${hostname}/${cleanPath}`.replace(/([^:]\/)\/+/g, '$1');
+
+    const head = [
+      ['link', { rel: 'canonical', href: canonicalUrl }]
+    ];
+
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": pageData.title || "OWIS Documentation",
+      "description": pageData.description || "Open Workspace Intelligence Specification reference.",
+      "url": canonicalUrl,
+      "dateModified": new Date(pageData.lastUpdated || Date.now()).toISOString(),
+      "author": {
+        "@type": "Organization",
+        "name": "zaditprodakwah",
+        "url": "https://github.com/zaditprodakwah"
+      }
+    };
+
+    head.push([
+      'script',
+      { type: 'application/ld+json' },
+      JSON.stringify(jsonLd)
+    ]);
+
+    return head;
   },
   rewrites: {
     'README.md': 'index.md',
