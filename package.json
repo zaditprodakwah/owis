@@ -1,5 +1,5 @@
 {
-  "name": "owis",
+  "name": "@zaditprodakwah/owis",
   "version": "0.2.0-rc.1",
   "description": "Open Workspace Intelligence Specification",
   "license": "MIT",
@@ -30,7 +30,10 @@
   "devDependencies": {
     "sitemap": "^9.0.1",
     "vitepress": "^1.6.4",
-    "vue": "^3.5.39"
+    "vue": "^3.5.39",
+    "publishConfig": {
+      "registry": "https://npm.pkg.github.com"
+    }
   },
   "dependencies": {
     "glob": "^13.0.6"
