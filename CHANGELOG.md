@@ -1,73 +1,33 @@
 # Changelog
 
-All notable changes to the OWIS specification will be documented in this file.
+All notable changes to the Open Workspace Intelligence Specification (OWIS) and its official reference implementation will be documented in this file.
 
-## v0.2.0-beta.1
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-**Status**: Implemented
-**Focus**: RFC-002 LLM Context Layer
+## [v0.2.0-rc.1] - 2026-07-15
 
-Added:
-- Standalone `@prodakwah/owis-context` package for provider-neutral LLM context generation
-- Builder for composing context from workspace, WIR, graph, and lint reports
-- Strict Sanitizer pipeline (Secret Redaction, Path Filtering, Prompt Injection Detection, Budget Enforcement)
-- JSON and Markdown serialization adapters
-- Additive CLI command `owis context <workspace>`
-- Added Context APIs to SDK (`buildContext`, `sanitizeContext`, `validateContext`, `serializeContext`)
+### Added
+- **Core Specification**: Finalized Phase 15 Core Specification implementation.
+- **WIR Engine**: Pure additive Directed Acyclic Graph extraction in `@prodakwah/owis-graph`.
+- **Runtime Limits**: Max search depth (10) and Node limit (500) enforced to prevent OOM errors on massive repos.
+- **Context Adapters**: Provider-neutral export capability (Markdown, JSON, OpenAI, Anthropic, LangChain) via `@prodakwah/owis-context`.
+- **CLI Commands**: Fully functional CLI including `owis scan`, `owis validate`, `owis lint`, and `owis context`.
+- **Security Checkers**: Added path traversal blockers, symlink loop detection, and aggressive JSON sanitization.
+- **Quality Gates**: Over 100 passing Unit tests, integration pipelines, benchmark suites, and exhaustive CI validation flows.
+- **Fuzzing Infrastructure**: Automated property-based fuzz testing to ensure catastrophic failure resilience.
+- **Documentation Site**: Complete VitePress integration mapping to `https://zaditprodakwah.github.io/owis/`.
+- **GitHub Governance**: Fully populated GitHub issue templates, PR templates, and community governance documentation.
 
+### Changed
+- Refactored all independent domains into standalone packages (`runtime`, `sdk`, `cli`, `lint`, `graph`, `context`) for isolated usage.
+- Migrated default logging to JSON-structured verbose formatting for machine readability.
+- Re-architected schema validation to enforce exact structure via Ajv strictly.
 
+### Fixed
+- Addressed multiple Edge Case vulnerabilities (Infinite symlinks, oversized metadata, corrupted Unicode characters).
+- Fixed transitive `npm audit` warnings related to development dependencies by deduplicating package-lock chains.
+- Prevented Graph Engine recursive hangs during extraction of circular imports.
 
-**Status**: Implemented
-**Focus**: RFC-001 WIR Graph Engine
-
-Added:
-- Standalone `@prodakwah/owis-graph` package for generating workspace intelligence graphs
-- CLI integration to output `wir.graph.json` during workspace scan
-- Graph extractor with mandatory security limits (max nodes, max edges, max depth, etc.)
-- Graph analyzer for connected components, circular dependencies, and orphan nodes
-- SDK methods `parseGraph()`, `analyzeGraph()`, `serializeGraph()`
-
-## v0.2.0-alpha.1
-
-**Status**: Implemented
-**Focus**: OWIS Schema Linter
-
-Added:
-- RFC-003 Schema Linter standalone engine (`@prodakwah/owis-lint`)
-- `owis lint` CLI command with unified diagnostics reporting
-- Linter Rule Registry and Scorer models
-- OWIS001: Missing workspace metadata validation
-- OWIS002: Invalid schema reference validation
-- OWIS003: Undocumented component validation
-- OWIS004: Missing dependency relationships validation
-- OWIS005: Naming convention validation
-
-## v0.1.0
-**Distribution**: GitHub Release, NPM (`@prodakwah/owis`, `@prodakwah/owis-sdk`)
-
-**Status**: Public Specification Baseline
-**Distribution**: GitHub Release, NPM (`owis`, `owis-sdk`)
-
-Added:
-- External Adoption Testing framework and mock workspaces
-- Agent Compatibility Testing specification
-- CLI UX enhancements and robustness fixes for malformed workspaces
-- SDK Integration Example
-- GitHub Issue and PR templates for community readiness
-- Documentation portal hardening
-- Canonical navigation hierarchy
-- SEO metadata
-- Sitemap generation
-- Documentation governance baseline
-- Initial Draft Canonical of Open Workspace Intelligence Specification
-- Universal Agent Runtime Specification (UARS)
-- Workspace Intelligence Report (WIR)
-
-Changed:
-- CLI output format to be structured and user-friendly
-- README documentation flow
-- Roadmap milestone structure
-
-Fixed:
-- Broken documentation links
-- Portal navigation inconsistencies
+### Security
+- Comprehensive Zero-Trust validation methodology applied to all runtime operations.
+- Enforced strict input sanitization on all raw user workspace files before inclusion in the WIR layer.

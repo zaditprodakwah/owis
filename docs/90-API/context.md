@@ -28,7 +28,7 @@ Entry point: `index.js`
 
 Assembles a raw context object from available OWIS artifacts.
 
-### Signature
+### buildContext(payloads, sourcesMap) Signature
 
 ```ts
 buildContext(
@@ -37,7 +37,7 @@ buildContext(
 ): RawContext
 ```
 
-### Parameters
+### buildContext(payloads, sourcesMap) Parameters
 
 ```ts
 interface ContextPayloads {
@@ -55,7 +55,7 @@ type SourcesMap = Record<"workspace" | "wir" | "graph" | "lint", string>;
 | `payloads` | `ContextPayloads` | Yes | One or more OWIS artifacts. All keys are optional but at least one should be present. |
 | `sourcesMap` | `SourcesMap` | Yes | Maps artifact type to filename. Used to populate `context.sources`. |
 
-### Return Value
+### buildContext(payloads, sourcesMap) Return Value
 
 A `RawContext` object. This is **not validated or sanitized**. You MUST pass it through `sanitizeContext` and `validateContext` before use or serialization.
 
@@ -63,7 +63,7 @@ A `RawContext` object. This is **not validated or sanitized**. You MUST pass it 
 
 All contexts produced by v0.2.x have `contextVersion: "0.2.0"`.
 
-### Example
+### buildContext(payloads, sourcesMap) Example
 
 ```js
 const { buildContext } = require('@prodakwah/owis-context');
@@ -80,13 +80,13 @@ const context = buildContext(
 
 Applies the sanitization pipeline to a raw context object.
 
-### Signature
+### sanitizeContext(context) Signature
 
 ```ts
 sanitizeContext(context: RawContext): SanitizeResult
 ```
 
-### Return Value
+### sanitizeContext(context) Return Value
 
 ```ts
 interface SanitizeResult {
@@ -128,7 +128,7 @@ This function MUST NOT:
 - Allow prompt injection to pass through to `metadata`
 - Leak secrets or absolute paths into serialized output
 
-### Example
+### sanitizeContext(context) Example
 
 ```js
 const { sanitizeContext } = require('@prodakwah/owis-context');
@@ -145,13 +145,13 @@ if (context._truncated) {
 
 Validates a sanitized context against `context/schema.json`.
 
-### Signature
+### validateContext(context) Signature
 
 ```ts
 validateContext(context: SanitizedContext): ValidationResult
 ```
 
-### Return Value
+### validateContext(context) Return Value
 
 ```ts
 interface ValidationResult {
@@ -160,7 +160,7 @@ interface ValidationResult {
 }
 ```
 
-### Example
+### validateContext(context) Example
 
 ```js
 const { validateContext } = require('@prodakwah/owis-context');
@@ -178,20 +178,20 @@ if (!result.valid) {
 
 Serializes a validated context to a string in the requested format.
 
-### Signature
+### serializeContext(context, format) Signature
 
 ```ts
 serializeContext(context: SanitizedContext, format: "json" | "markdown"): string
 ```
 
-### Parameters
+### serializeContext(context, format) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `context` | `SanitizedContext` | Yes | A validated, sanitized context object. |
 | `format` | `string` | Yes | `"json"` or `"markdown"` |
 
-### Return Value
+### serializeContext(context, format) Return Value
 
 - `"json"`: UTF-8 JSON string with 2-space indentation, LF line endings, sorted keys.
 - `"markdown"`: UTF-8 Markdown document with LF line endings.
@@ -202,7 +202,7 @@ Both output formats are fully deterministic:
 - Same input → identical byte-for-byte output (excluding `generatedAt` timestamps).
 - Consumers that need full determinism MUST normalize `generatedAt` before comparison.
 
-### Errors
+### serializeContext(context, format) Errors
 
 | Condition | Error |
 |-----------|-------|
@@ -214,19 +214,19 @@ Both output formats are fully deterministic:
 
 Loads a previously serialized `context.json` from disk.
 
-### Signature
+### loadContext(filepath) Signature
 
 ```ts
 loadContext(filepath: string): SanitizedContext
 ```
 
-### Parameters
+### loadContext(filepath) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `filepath` | `string` | Yes | Absolute or relative path to a `context.json` file. |
 
-### Errors
+### loadContext(filepath) Errors
 
 | Condition | Behavior |
 |-----------|----------|

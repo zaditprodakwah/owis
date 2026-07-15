@@ -1,0 +1,13 @@
+{
+  "name": "owis",
+  "organization": "zaditprodakwah",
+  "website": "https://zaditprodakwah.github.io/owis/",
+  "specification_version": "v0.2.0-rc.1",
+  "runtime_version": "0.2.0-rc.1",
+  "cli_version": "0.2.0-rc.1",
+  "sdk_version": "0.2.0-rc.1",
+  "schema_version": "v0.2.0",
+  "stability": "Release Candidate",
+  "license": "MIT",
+  "repository": "https://github.com/zaditprodakwah/owis"
+}

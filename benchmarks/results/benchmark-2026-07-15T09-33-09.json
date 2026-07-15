@@ -1,0 +1,116 @@
+{
+  "generatedAt": "2026-07-15T09:33:09.328Z",
+  "nodeVersion": "v24.12.0",
+  "platform": "darwin",
+  "arch": "x64",
+  "results": [
+    {
+      "fixture": "simple",
+      "timestamp": "2026-07-15T09:33:09.309Z",
+      "phases": {
+        "parse": {
+          "elapsedMs": 1.614,
+          "fileCount": 7,
+          "directoryCount": 1
+        },
+        "graph": {
+          "elapsedMs": 1.809,
+          "nodeCount": 9,
+          "edgeCount": 8
+        },
+        "context": {
+          "elapsedMs": 2.348,
+          "outputBytes": 3910
+        }
+      },
+      "summary": {
+        "totalElapsedMs": 5.818,
+        "peakMemoryMB": 7.754,
+        "fileCount": 7,
+        "graphNodeCount": 9,
+        "graphEdgeCount": 8
+      }
+    },
+    {
+      "fixture": "medium",
+      "timestamp": "2026-07-15T09:33:09.319Z",
+      "phases": {
+        "parse": {
+          "elapsedMs": 1.574,
+          "fileCount": 11,
+          "directoryCount": 2
+        },
+        "graph": {
+          "elapsedMs": 1.243,
+          "nodeCount": 14,
+          "edgeCount": 13
+        },
+        "context": {
+          "elapsedMs": 0.407,
+          "outputBytes": 5552
+        }
+      },
+      "summary": {
+        "totalElapsedMs": 3.249,
+        "peakMemoryMB": 7.265,
+        "fileCount": 11,
+        "graphNodeCount": 14,
+        "graphEdgeCount": 13
+      }
+    },
+    {
+      "fixture": "large",
+      "timestamp": "2026-07-15T09:33:09.322Z",
+      "phases": {
+        "parse": {
+          "elapsedMs": 1.501,
+          "fileCount": 11,
+          "directoryCount": 4
+        },
+        "graph": {
+          "elapsedMs": 0.959,
+          "nodeCount": 16,
+          "edgeCount": 15
+        },
+        "context": {
+          "elapsedMs": 0.315,
+          "outputBytes": 6240
+        }
+      },
+      "summary": {
+        "totalElapsedMs": 2.801,
+        "peakMemoryMB": 7.273,
+        "fileCount": 11,
+        "graphNodeCount": 16,
+        "graphEdgeCount": 15
+      }
+    },
+    {
+      "fixture": "monorepo",
+      "timestamp": "2026-07-15T09:33:09.325Z",
+      "phases": {
+        "parse": {
+          "elapsedMs": 1.359,
+          "fileCount": 10,
+          "directoryCount": 4
+        },
+        "graph": {
+          "elapsedMs": 1.129,
+          "nodeCount": 15,
+          "edgeCount": 14
+        },
+        "context": {
+          "elapsedMs": 0.297,
+          "outputBytes": 6047
+        }
+      },
+      "summary": {
+        "totalElapsedMs": 2.807,
+        "peakMemoryMB": 7.483,
+        "fileCount": 10,
+        "graphNodeCount": 15,
+        "graphEdgeCount": 14
+      }
+    }
+  ]
+}

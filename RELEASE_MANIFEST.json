@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0-rc.1",
+  "packages": [
+    "@prodakwah/owis-runtime",
+    "@prodakwah/owis-cli",
+    "@prodakwah/owis-sdk",
+    "@prodakwah/owis-lint",
+    "@prodakwah/owis-graph",
+    "@prodakwah/owis-context"
+  ],
+  "checksums": {
+    "runtime": "sha512-5vqD2ZvbdV7l9...",
+    "cli": "sha512-OhAgSEQxf0AoI...",
+    "sdk": "sha512-mYS9PKsav3sQ/...",
+    "lint": "sha512-f21fRgP5OuCPF...",
+    "graph": "sha512-goFx9E4sSHQ4n...",
+    "context": "sha512-LUR6Fog/NZbNc..."
+  },
+  "schemas": [
+    "workspace.schema.json",
+    "wir.schema.json",
+    "knowledge.schema.json",
+    "dependency.schema.json",
+    "artifact.schema.json"
+  ],
+  "artifacts": [
+    "wir.json",
+    "wir.graph.json",
+    "context.json",
+    "context.md"
+  ],
+  "compatibility": {
+    "v0.1": true
+  },
+  "supported_node": ">= 20.0.0",
+  "release_date": "2026-07-15T00:00:00Z"
+}

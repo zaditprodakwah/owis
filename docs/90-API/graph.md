@@ -28,31 +28,31 @@ Entry point: `index.js`
 
 Extracts a `Graph` from a workspace directory and its WIR.
 
-### Signature
+### parseGraph(workspaceRoot, wir) Signature
 
 ```ts
 parseGraph(workspaceRoot: string, wir: WIR): Graph
 ```
 
-### Parameters
+### parseGraph(workspaceRoot, wir) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `workspaceRoot` | `string` | Yes | Absolute path to the workspace root. |
 | `wir` | `WIR` | Yes | A parsed WIR object. |
 
-### Return Value
+### parseGraph(workspaceRoot, wir) Return Value
 
 An internal opaque `Graph` object. Do not serialize directly; use `serializeGraph`.
 
-### Errors
+### parseGraph(workspaceRoot, wir) Errors
 
 | Condition | Behavior |
 |-----------|----------|
 | `workspaceRoot` does not exist | Throws `Error: Workspace path does not exist: <path>` |
 | `wir` is null or not an object | Throws `TypeError` |
 
-### Example
+### parseGraph(workspaceRoot, wir) Example
 
 ```js
 const { parseGraph, serializeGraph } = require('@prodakwah/owis-graph');
@@ -67,19 +67,19 @@ const graphData = serializeGraph(graph);
 
 Analyzes a `Graph` and returns structural statistics.
 
-### Signature
+### analyzeGraph(graph) Signature
 
 ```ts
 analyzeGraph(graph: Graph): GraphAnalysis
 ```
 
-### Parameters
+### analyzeGraph(graph) Parameters
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `graph` | `Graph` | Yes | Internal `Graph` object from `parseGraph`. |
 
-### Return Value
+### analyzeGraph(graph) Return Value
 
 ```ts
 interface GraphAnalysis {
@@ -93,7 +93,7 @@ interface GraphAnalysis {
 }
 ```
 
-### Example
+### analyzeGraph(graph) Example
 
 ```js
 const analysis = analyzeGraph(graph);
@@ -108,13 +108,13 @@ console.log(`Has cycles: ${analysis.hasCycles}`);
 
 Serializes a `Graph` to the canonical `wir.graph.json` JSON representation.
 
-### Signature
+### serializeGraph(graph) Signature
 
 ```ts
 serializeGraph(graph: Graph): SerializedGraph
 ```
 
-### Return Value
+### serializeGraph(graph) Return Value
 
 ```ts
 interface SerializedGraph {
@@ -148,7 +148,7 @@ type EdgeType = "contains" | "imports" | "depends_on" | "references" | "generate
 - Edges sorted by `from` then `to` alphabetically.
 - All `metadata` object keys sorted alphabetically.
 
-### Example
+### serializeGraph(graph) Example
 
 ```js
 const serialized = serializeGraph(graph);

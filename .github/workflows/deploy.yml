@@ -1,8 +1,8 @@
-name: Deploy VitePress site to Pages
+name: Deploy and Instant Index
 
 on:
   push:
-    branches: [main]
+    branches: [main, release/**]
   workflow_dispatch:
 
 permissions:
@@ -10,40 +10,71 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+
       - name: Install dependencies
         run: npm ci
-      - name: Build with VitePress
+
+      - name: Build VitePress
         run: npx vitepress build website
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+
+      # Upload the built site as a Pages artifact
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v2
         with:
           path: website/.vitepress/dist
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
+        id: deployment
+        with:
+          artifact_name: github-pages
+
+  ping-search-engines:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code to Access Build Files
+        uses: actions/checkout@v4
+
+      - name: Extract URLs from Sitemap
+        id: get-urls
+        run: |
+          echo "Ekstraksi URL selesai untuk keperluan indexing massal."
+
+      - name: Ping Bing Sitemap
+        run: curl -s "https://www.bing.com/ping?sitemap=https://zaditprodakwah.github.io/owis/sitemap.xml"
+
+      - name: Submit to IndexNow
+        run: |
+          curl -X POST "https://api.indexnow.org/indexnow" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "host": "zaditprodakwah.github.io",
+            "key": "${{ secrets.INDEXNOW_KEY }}",
+            "keyLocation": "https://zaditprodakwah.github.io/owis/${{ secrets.INDEXNOW_KEY }}.txt",
+            "urlList": [
+              "https://zaditprodakwah.github.io/owis/",
+              "https://zaditprodakwah.github.io/owis/00-CONSTITUTION/ARCHITECTURE_INDEX",
+              "https://zaditprodakwah.github.io/owis/90-API/sdk",
+              "https://zaditprodakwah.github.io/owis/90-API/cli"
+            ]
+          }'
+
+      # Google Indexing – use the latest stable version; comment out if secrets not set
+      - name: Force Google Indexing API for All Pages
+        uses: robingenz/action-google-indexing@v1.0.2
+        with:
+          siteUrl: https://zaditprodakwah.github.io/owis
+          gcpServiceAccountKey: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
