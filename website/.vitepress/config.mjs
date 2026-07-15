@@ -16,13 +16,51 @@ export default defineConfig({
     ['meta', { property: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { property: 'twitter:title', content: 'OWIS' }],
     ['meta', { property: 'twitter:description', content: 'Open Workspace Intelligence Specification' }],
-    ['meta', { property: 'twitter:image', content: 'https://zaditprodakwah.github.io/owis/repository-open-graph-template.png' }],
+    ['meta', { name: 'google-site-verification', content: 'xFk9adW7bZ3Q_xYfgc2ecCAKXfgRkF_Awri1xkRaCbs' }],
+    ['meta', { name: 'msvalidate.01', content: '015756E98C3F3893642C5EC255A85850' }],
     ['meta', { name: 'keywords', content: 'owis, workspace-intelligence, context-layer, wir, code-understanding, ai-agents, open-interoperability-standard' }]
   ],
   srcDir: '..',
   srcExclude: ['**/node_modules/**', 'website/dist/**', 'website/cache/**'],
   sitemap: {
-    hostname: 'https://zaditprodakwah.github.io/owis/'
+    hostname: 'https://zaditprodakwah.github.io/owis/',
+    lastmodDateOnly: false
+  },
+  transformHead: (context) => {
+    const { pageData } = context;
+    const hostname = 'https://zaditprodakwah.github.io/owis';
+    const cleanPath = pageData.relativePath
+      .replace(/(^|\/)index\.md$/, '$1')
+      .replace(/\.md$/, '');
+    
+    // Memastikan penggabungan URL tidak menghasilkan double slash yang merusak tag canonical
+    const canonicalUrl = `${hostname}/${cleanPath}`.replace(/([^:]\/)\/+/g, '$1');
+
+    const head = [
+      ['link', { rel: 'canonical', href: canonicalUrl }]
+    ];
+
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": pageData.title || "OWIS Documentation",
+      "description": pageData.description || "Open Workspace Intelligence Specification reference.",
+      "url": canonicalUrl,
+      "dateModified": new Date(pageData.lastUpdated || Date.now()).toISOString(),
+      "author": {
+        "@type": "Organization",
+        "name": "zaditprodakwah",
+        "url": "https://github.com/zaditprodakwah"
+      }
+    };
+
+    head.push([
+      'script',
+      { type: 'application/ld+json' },
+      JSON.stringify(jsonLd)
+    ]);
+
+    return head;
   },
   rewrites: {
     'README.md': 'index.md',
