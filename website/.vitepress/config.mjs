@@ -135,8 +135,8 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'OWIS Specification v0.1.0 | Documentation v0.1.0 | Released under the MIT License.',
-      copyright: 'Copyright © 2026-present OWIS Project Contributors'
+      message: 'OWIS Specification v0.2.0-rc.1 | Documentation v0.2.0-rc.1 | Released under the MIT License.',
+      copyright: 'Copyright © 2026-present OWIS Project Contributors & Zadit Prodakwah'
     },
 
     search: {
