@@ -45,6 +45,9 @@ Added:
 ## v0.1.0
 **Distribution**: GitHub Release, NPM (`@prodakwah/owis`, `@prodakwah/owis-sdk`)
 
+**Status**: Public Specification Baseline
+**Distribution**: GitHub Release, NPM (`owis`, `owis-sdk`)
+
 Added:
 - External Adoption Testing framework and mock workspaces
 - Agent Compatibility Testing specification
