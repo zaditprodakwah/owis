@@ -8,12 +8,16 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
   head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/owis/favicon.svg' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'OWIS' }],
     ['meta', { property: 'og:description', content: 'Open Workspace Intelligence Specification' }],
+    ['meta', { property: 'og:image', content: 'https://zaditprodakwah.github.io/owis/repository-open-graph-template.png' }],
     ['meta', { property: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { property: 'twitter:title', content: 'OWIS' }],
-    ['meta', { property: 'twitter:description', content: 'Open Workspace Intelligence Specification' }]
+    ['meta', { property: 'twitter:description', content: 'Open Workspace Intelligence Specification' }],
+    ['meta', { property: 'twitter:image', content: 'https://zaditprodakwah.github.io/owis/repository-open-graph-template.png' }],
+    ['meta', { name: 'keywords', content: 'owis, workspace-intelligence, context-layer, wir, code-understanding, ai-agents, open-interoperability-standard' }]
   ],
   srcDir: '..',
   srcExclude: ['**/node_modules/**', 'website/dist/**', 'website/cache/**'],
@@ -30,6 +34,7 @@ export default defineConfig({
     'LICENSE.md': 'license.md'
   },
   themeConfig: {
+    logo: '/logo.svg',
     // https://vitepress.dev/reference/default-theme-config
     editLink: {
       pattern: 'https://github.com/zaditprodakwah/owis/edit/main/:path',

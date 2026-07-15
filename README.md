@@ -1,26 +1,43 @@
-# OWIS
+<p align="center">
+  <img src="./website/public/logo.svg" alt="OWIS Logo" width="120" height="120" />
+</p>
 
-Open Workspace Intelligence Specification (OWIS) is an open interoperability standard that normalizes software workspace context, enabling consistent and deterministic project understanding for both humans and AI IDE Agents.
+<h1 align="center">OWIS</h1>
+
+<p align="center">
+  <strong>Open Workspace Intelligence Specification</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/zaditprodakwah/owis/actions/workflows/ci.yml"><img src="https://github.com/zaditprodakwah/owis/actions/workflows/ci.yml/badge.svg" alt="CI Build Status" /></a>
+  <a href="https://www.npmjs.com/package/@prodakwah/owis"><img src="https://img.shields.io/npm/v/@prodakwah/owis.svg" alt="NPM Version" /></a>
+  <a href="https://github.com/zaditprodakwah/owis/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/zaditprodakwah/owis.svg" alt="License" /></a>
+  <a href="https://zaditprodakwah.github.io/owis/"><img src="https://img.shields.io/badge/docs-portal-brightgreen.svg" alt="Docs Portal" /></a>
+</p>
 
 ---
 
-## Overview
+OWIS (Open Workspace Intelligence Specification) is an open interoperability standard that normalizes software workspace context. It enables consistent and deterministic project understanding for both humans and AI IDE Agents.
+
+---
+
+## 🔍 Overview
 
 Today, AI software engineering is limited not by code generation capability, but by the ability of AI assistants to understand projects deterministically. OWIS provides a neutral, structured layer between the software codebase and AI runtimes, establishing a canonical source of truth and clear guidelines for safe workspace mutations.
 
 ---
 
-## Mission
+## 🎯 Mission
 
-* **Describe** how AI understands a workspace.
-* **Generate** a canonical representation of a project.
-* **Reduce** context loss, architecture drift, and AI slop.
-* **Enable** interoperability between AI IDE Agents.
-* **Establish** a foundation for tooling, validation, and governance.
+* **Describe**: Define how AI understands a workspace.
+* **Generate**: Produce a canonical, deterministic representation of a project.
+* **Reduce**: Eliminate context loss, architecture drift, and AI slop.
+* **Enable**: Ensure seamless interoperability between various AI IDE Agents.
+* **Establish**: Set up a solid foundation for tooling, validation, and governance.
 
 ---
 
-## Core Principles
+## 💡 Core Principles
 
 * **Workspace First**: The workspace is the primary unit of analysis.
 * **Knowledge Before Execution**: AI must understand the project before making mutations.
