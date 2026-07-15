@@ -52,7 +52,7 @@ This repository is organized according to the **Document Architecture Specificat
 
 ## Quick Start
 
-To get started with OWIS as a developer, contributor, or AI agent, please read the [Getting Started Guide](getting_started.md). 
+To get started with OWIS as a developer, contributor, or AI agent, please read the [Getting Started Guide](GETTING_STARTED.md). 
 
 This guide details:
 1. The repository structure and document reading order.

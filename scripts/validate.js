@@ -94,17 +94,17 @@ const steps = [
   {
     id: 8,
     label: 'Compatibility Tests',
-    fn: () => run('Compatibility Tests', 'node --test compatibility/*.test.js')
+    fn: () => run('Compatibility Tests', 'node --test compatibility/v0.1-cli.test.js compatibility/v0.1-runtime.test.js compatibility/v0.1-sdk.test.js compatibility/v0.2-context.test.js compatibility/v0.2-graph.test.js')
   },
   {
     id: 9,
     label: 'Snapshot Tests',
-    fn: () => run('Snapshot Tests', 'node --test tests/snapshots/*.test.js')
+    fn: () => run('Snapshot Tests', 'node --test tests/snapshots/snapshot.test.js')
   },
   {
     id: 10,
     label: 'Security Tests',
-    fn: () => run('Security Tests', 'node --test security/fuzz/tests/*.test.js')
+    fn: () => run('Security Tests', 'node --test security/fuzz/tests/security.test.js')
   },
   {
     id: 11,
