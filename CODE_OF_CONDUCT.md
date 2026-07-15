@@ -30,10 +30,12 @@ Community leaders have the right and responsibility to remove, edit, or reject c
 
 ## Scope
 
-This Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces. Examples of representing our community include using an official email address, posting via an official social media account, or acting as an appointed representative at an online or offline event.
+This Code of Conduct applies within all community spaces, including [Issues](https://github.com/zaditprodakwah/owis/issues), [Discussions](https://github.com/zaditprodakwah/owis/discussions), the [Wiki](https://github.com/zaditprodakwah/owis/wiki), and [Projects](https://github.com/zaditprodakwah/owis/projects). It also applies when an individual is officially representing the community in public spaces. Examples of representing our community include using an official email address, posting via an official social media account, or acting as an appointed representative at an online or offline event.
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement. All complaints will be reviewed and investigated promptly and fairly. 
+
+For general project matters and technical queries, please use [Discussions](https://github.com/zaditprodakwah/owis/discussions) or [Issues](https://github.com/zaditprodakwah/owis/issues). For Code of Conduct violations, please contact the maintainers directly through private channels when privacy is required.
 
 All community leaders are obligated to respect the privacy and security of the reporter of any incident.

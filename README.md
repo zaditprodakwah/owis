@@ -74,11 +74,20 @@ Available via:
 
 ---
 
+## Community & Support
+
+* [Issues](https://github.com/zaditprodakwah/owis/issues) - Bug reports and feature requests.
+* [Discussions](https://github.com/zaditprodakwah/owis/discussions) - Q&A, ideas, and general communication.
+* [Projects](https://github.com/zaditprodakwah/owis/projects) - Tracking features, RFCs, and release planning.
+* [Wiki](https://github.com/zaditprodakwah/owis/wiki) - Additional community-maintained documentation.
+
+---
+
 ## Links
 
-* [Getting Started Guide](getting_started.md)
-* [Project Roadmap](roadmap.md)
-* [Contributing Guidelines](contributing.md)
-* [Changelog](changelog.md)
-* [Code of Conduct](code_of_conduct.md)
-* [MIT License](license.md)
+* [Getting Started Guide](GETTING_STARTED.md)
+* [Project Roadmap](ROADMAP.md)
+* [Contributing Guidelines](CONTRIBUTING.md)
+* [Changelog](CHANGELOG.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
+* [MIT License](LICENSE.md)

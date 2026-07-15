@@ -12,6 +12,14 @@
     "url": "https://github.com/zaditprodakwah/owis/issues"
   },
   "homepage": "https://zaditprodakwah.github.io/owis/",
+  "workspaces": [
+    "cli",
+    "runtime",
+    "sdk",
+    "lint",
+    "graph",
+    "context"
+  ],
   "scripts": {
     "validate": "node scripts/validate.js",
     "fixtures:update": "node scripts/update-fixtures.js",
