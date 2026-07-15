@@ -21,6 +21,8 @@
     "context"
   ],
   "scripts": {
+    "build": "npx vitepress build website && cp website/public/robots.txt website/.vitepress/dist/robots.txt",
+
     "validate": "node scripts/validate.js",
     "fixtures:update": "node scripts/update-fixtures.js",
     "docs:validate": "node scripts/validate-docs.js"
