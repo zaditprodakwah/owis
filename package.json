@@ -22,18 +22,19 @@
   ],
   "scripts": {
     "build": "npx vitepress build website && cp website/public/robots.txt website/.vitepress/dist/robots.txt",
-
+    
     "validate": "node scripts/validate.js",
     "fixtures:update": "node scripts/update-fixtures.js",
-    "docs:validate": "node scripts/validate-docs.js"
+    "docs:validate": "node scripts/validate-docs.js",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "validate-release": "npm run validate && npm pack --workspaces"
   },
   "devDependencies": {
     "sitemap": "^9.0.1",
     "vitepress": "^1.6.4",
     "vue": "^3.5.39",
-    "publishConfig": {
-      "registry": "https://npm.pkg.github.com"
-    }
+    "@changesets/cli": "^2.27.1"
   },
   "dependencies": {
     "glob": "^13.0.6"

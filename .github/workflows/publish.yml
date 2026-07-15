@@ -1,35 +1,42 @@
-name: Publish OWIS to GitHub Packages
+name: Verify Release Readiness
 
 on:
+  workflow_dispatch:
   push:
-    tags:
-      - 'v*'   # trigger on tags like v0.2.0
+    branches:
+      - 'release/*'
 
 permissions:
   contents: read
-  packages: write
+  packages: read
 
 jobs:
-  publish:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # Ensure we get the full history for tag resolution
           fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'   # LTS version
-          registry-url: https://npm.pkg.github.com
-          scope: '@zaditprodakwah'
+          node-version: '20'
+          registry-url: https://registry.npmjs.org/
+          scope: '@prodakwah'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Publish package
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm publish
+      - name: Run validation script
+        run: npm run validate-release
+
+      - name: Pack workspaces
+        run: npm pack --workspaces
+
+      - name: Upload package artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: owis-packages
+          path: "*.tgz"
