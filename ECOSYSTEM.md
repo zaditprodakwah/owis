@@ -1,24 +1,93 @@
 # OWIS Ecosystem
 
-OWIS (Open Workspace Intelligence Specification) is designed to be the foundational layer for tools that reason about codebases. Because it emits deterministic JSON artifacts (`wir.json` and `context.json`), it acts as a neutral bridge between your raw source code and intelligent tooling.
+## Vision
 
-This document serves as an index for the broader OWIS ecosystem.
+OWIS (Open Workspace Intelligence Specification) is the lingua franca that connects **developers**, **AI agents**, **CI/CD pipelines**, **IDE extensions**, and **documentation generators**. It provides a deterministic, versioned representation of a codebase (WIR, context JSON/Markdown) that any consumer can ingest without parsing source files.
 
-## Integrations
+## Principles
 
-### AI Agents and LLM Frameworks
-OWIS is an ideal context-provider for Large Language Models. By passing the output of `@prodakwah/owis-context` (or running `owis context`) to your prompt, you drastically reduce token overhead while providing the model with a perfect architectural map of the workspace.
-- [Integrating with AI Agents](docs/ecosystem/AI_AGENTS.md)
+- **Interoperability** – All public artifacts are defined as open JSON schemas.
+- **Determinism** – Given the same input repository, the runtime produces identical `wir.json` and `context.json`.
+- **Extensibility** – Extension points are explicit and versioned.
+- **Governance** – Evolution of the specification follows RFC processes and is documented in the `governance/` folder.
+- **Stability** – Public APIs are classified in the **Public API Stability Matrix** (see `IMPLEMENTATION_PLAN_PHASE17.md`).
 
-### Editor Extensions
-The OWIS deterministic artifact generation can power real-time IDE features like intelligent dependency graphs, cross-module refactoring context, and deep code understanding.
-- [VSCode Extension Plan](docs/ecosystem/VSCODE_EXTENSION_PLAN.md)
+## Ecosystem Layers
 
-### CI/CD Pipelines
-OWIS can be used in CI/CD to:
-- Generate cryptographically verifiable hashes of the workspace architecture (e.g., `sha256sum wir.json`).
-- Prevent circular dependencies via `@prodakwah/owis-lint`.
-- Gate PRs based on architectural constraints defined in `workspace.json`.
+1. **Specification** – Formal definition of WIR, context formats, and schema contracts.
+2. **Reference Runtime** – The canonical implementation (`@prodakwah/owis-runtime`).
+3. **SDK** – Language bindings (Node, Python, etc.) that wrap the runtime.
+4. **Developer Tools** – CLI, lint, graph visualizer.
+5. **Integrations** – IDE extensions, CI actions, AI adapters.
+6. **Templates** – Starter repositories for common use‑cases.
+7. **Registry** – Future package registry for OWIS‑compatible tooling.
+8. **Certification** – Conformance test suites and badge program.
+9. **Community** – Contributions, discussions, and governance.
 
-### Static Analysis Tools
-Because OWIS handles the complex resolution of monorepo package structures and file paths, downstream static analysis tools can simply consume `wir.json` to know exactly what modules exist, what they export, and what they import, without parsing the filesystem themselves.
+## Stakeholders
+
+| Stakeholder | Needs |
+|------------|-------|
+| Individual Developers | CLI, SDK, examples, quick‑start guides |
+| Teams | CI validation, documentation, governance |
+| Enterprises | Governance framework, version policy, compatibility guarantees |
+| AI IDE Vendors | Stable API, MCP spec, language server, SDK |
+| OSS Maintainers | Templates, migration guide, examples |
+
+## Consumer Matrix
+
+| Consumer | Uses |
+|----------|------|
+| CLI | Runtime |
+| SDK | Runtime |
+| IDE | SDK |
+| MCP | Runtime |
+| CI | CLI |
+| VSCode | SDK |
+| AI Agent | Context |
+| GitHub Action | CLI |
+| Documentation | Context |
+
+## Producer Matrix
+
+| Producer | Produces |
+|----------|----------|
+| Runtime | WIR, Context JSON |
+| Graph Engine | Graph JSON |
+| Context Engine | Context Markdown |
+| Lint Engine | Diagnostics |
+| SDK | Language‑specific API |
+| CLI | Reports, exit codes |
+
+## Extension Model
+
+- **Rule Providers** – Custom lint/validation rules.
+- **Schema Providers** – Additional JSON schema contributions.
+- **Exporters / Importers** – Alternate serializations (YAML, protobuf).
+- **Graph Analyzer** – Plugins for custom graph queries.
+- **Context Adapters** – Bridge to LLMs, code‑search engines.
+- **Renderers** – HTML, Markdown, JSON visualizers.
+- **Plugin Loader** – Runtime‑agnostic discovery of extensions.
+
+## Compatibility Philosophy
+
+- **Stable** APIs guarantee backward compatibility across major releases.
+- **Supported** APIs may evolve but maintain semantic compatibility; deprecation warnings are emitted.
+- **Experimental** APIs are usable but can change without notice.
+- **Internal** APIs are not part of the public contract.
+
+## Plugin Philosophy
+
+Plugins are discovered via a **manifest** (`owis-plugin.json`) placed at the repository root. They declare required capabilities, version ranges, and optional dependencies. The runtime loads plugins in a sandboxed environment to avoid side‑effects.
+
+## Governance Relationship
+
+The ecosystem documentation lives under `docs/`. Governance processes (RFC, ADR) are defined in `docs/governance/`. All ecosystem artifacts must be reviewed via the OWIS RFC workflow before being marked **Stable**.
+
+## Ecosystem Lifecycle
+
+1. **Design** – RFC → ADR → Specification freeze.
+2. **Implementation** – Reference runtime, SDKs, and tooling.
+3. **Adoption** – Templates, examples, integration guides.
+4. **Stabilization** – Public API freeze, certification.
+5. **Evolution** – New phases (Registry, Certification) built on a stable base.
