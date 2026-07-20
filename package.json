@@ -34,7 +34,7 @@
     "sitemap": "^9.0.1",
     "vitepress": "^1.6.4",
     "vue": "^3.5.39",
-    "@changesets/cli": "^2.27.1"
+    "@changesets/cli": "^2.31.1"
 
   },
   "dependencies": {
